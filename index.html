@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Grid</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script>
+        // Verifica se o tema salvo no localStorage é "dark"
+        if (localStorage.getItem('theme') === 'dark') {
+            // Adiciona a classe 'dark-mode' no HTML imediatamente
+            document.documentElement.classList.add('dark-mode');
+            // Marca o toggle como ativado (checkbox)
+            window.onload = function() {
+                document.getElementById('alternador').checked = true;
+            };
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            window.onload = function() {
+                document.getElementById('alternador').checked = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="home">
+            <h3 class="logo">Hope<strong>Vet</strong></h3>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#func">Funcionalidades</a>
+                <a href="#cred">Créditos</a>
+            </nav>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox" id="alternador" />
+                <div class="toggle-switch"></div>
+            </label>
+            <a href="login.html" class="login">Login</a>
+        </div>
+        <div class="introduction">
+            <img src="img/pulgaPhoto.png" alt="Cachorro" />
+            <div>
+                <h2>Conheça nosso sistema</h2>
+                <p>Transforme a sua clínica veterinária e maximize seu tempo!</p>
+            </div>
+        </div>
+        <div class="funcs" id="func">
+            <div>
+                <h2>Sobre as funcionalidades</h2>
+                <p>Descubra como podemos ajudar a cuidar da sua clinica!</p>
+            </div>
+            <img src="img/I_Engs.png" alt="Engrenagem"/>
+        </div>
+        <div class="credits" id="cred">
+            <section class="creditos" id="creditos">
+                <h1 class="creditos-title">
+                    Criado pela equipe <strong class="creditos-strong">HOPE</strong>
+                </h1>
+                
+                <div class="creditos-content">
+                    <div>
+                        <h2 class="creditos-content-merito">Designer de Banner</h2>
+                        <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
+                            Caique B. Oliveira
+                        </h1>
+                    </div>
+                    <div class="creditos-content-links">
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Github.svg" alt="GitHub" />
+                        </a>
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Mais.svg" alt="Mais" />
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="creditos-content">
+                    <div>
+                        <h2 class="creditos-content-merito">Coautora do Artigo e Modeladora de Banco de Dados</h2>
+                        <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
+                            Eduarda O. A. Santos
+                        </h1>
+                    </div>
+                    <div class="creditos-content-links">
+                        <a href="https://www.linkedin.com/in/eduardaoliveirasantos/" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="https://github.com/EduardaOliveiraSantos?tab=repositories" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Github.svg" alt="GitHub" />
+                        </a>
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Mais.svg" alt="Mais" />
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="creditos-content">
+                    <div>
+                        <h2 class="creditos-content-merito">Gerente de Projeto</h2>
+                        <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
+                            Gabriel O. Barbosa
+                        </h1>
+                    </div>
+                    <div class="creditos-content-links">
+                        <a href="https://www.linkedin.com/in/gabriel-oliveira-2192092b8/" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="https://github.com/GAV3R?tab=repositories" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Github.svg" alt="GitHub" />
+                        </a>
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Mais.svg" alt="Mais" />
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="creditos-content">
+                    <div>
+                        <h2 class="creditos-content-merito">Analista de Artigos e Coordenador de Consultas</h2>
+                        <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
+                            Gustavo R. Passerini
+                        </h1>
+                    </div>
+                    <div class="creditos-content-links">
+                        <a href="https://www.linkedin.com/in/gustavo-passerini-613917270/" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="https://github.com/MrGustavoRighetti?tab=repositories" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Github.svg" alt="GitHub" />
+                        </a>
+                        <a href="#" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Mais.svg" alt="Mais" />
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="creditos-content">
+                    <div>
+                        <h2 class="creditos-content-merito">Desenvolvedor Front-End</h2>
+                        <h1 class="creditos-content-name" onclick="toggleVisibility(this)">
+                            Kaiky F. Silva
+                        </h1>
+                    </div>
+                    <div class="creditos-content-links">
+                        <a href="https://www.linkedin.com/in/kaiky-silva/" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="https://github.com/xKaiFyx?tab=repositories" target="_blank" class="creditos-content-links-link">
+                            <img src="img/I_Github.svg" alt="GitHub" />
+                        </a>
+                        <a href="#" class="creditos-content-links-link">
+                            <img src="img/I_Mais.svg" alt="Mais" />
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

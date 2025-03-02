@@ -1,0 +1,426 @@
+:root {
+    /* ===== Cores Imutáveis ===== */
+    --system-color: #00675e;
+    --func-hover: #00675e22;
+    --func-active: #00433f3d;
+
+    /* ===== Cores Light ===== */
+    --input-color: #e7e7e7;
+    --grey-color: #b2b2b2;
+    --bg-color: #F5F5F5;
+    --txt-color: #333333;
+
+    /* ===== Cores Dark ===== */
+    --input-color-dark: #c5c5c5;
+    --grey-color-dark: #8a8a8a;
+    --bg-color-dark: #121212;
+    --txt-color-dark: #E0E0E0;
+
+    /* ===== Tipografia ===== */
+    --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dark-mode {
+    --grey-color: var(--grey-color-dark);
+    --input-color: var(--input-color-dark);
+    --bg-color: var(--bg-color-dark);
+    --txt-color: var(--txt-color-dark);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "logo funcs"
+        "sidebar content";
+    min-height: 100vh;
+}
+
+.logo, .funcs, .sidebar, .content {
+    font-family: var(--system-font);
+    color: var(--txt-color);
+}
+
+.logo, .funcs, .sidebar{
+    background-color: var(--bg-color);
+}
+
+.sidebar p {
+    font-size: 16px;
+    color: var(--txt-color);
+}
+
+.content .text {
+    font-size: 16px;
+    color: var(--txt-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== Logo ===== */
+.logo {
+    grid-area: logo;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+strong {
+    color: var(--system-color);
+}
+
+/* ===== Funcionalidades ===== */
+.funcs {
+    grid-area: funcs;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+}
+
+.funcs p {
+    font-size: 20px;
+    font-weight: 500;
+    grid-column: 1;
+}
+
+.funcs .toggle {
+    grid-column: 4;
+    justify-self: end;
+}
+
+.funcs span, .back-to {
+    grid-column: 5;
+}
+
+/* Modo escuro quando o checkbox está marcado */
+.toggle-checkbox:checked ~ #navegationRedirect {
+    background-color: var(--bg-color-dark); /* Cor de fundo em modo escuro */
+    color: var(--bg-color-dark); /* Cor do texto em modo escuro */
+}
+.toggle-checkbox:checked ~ #navegationRedirect .navegation-redirect-link {
+    color: var(--bg-color-dark); /* Cor dos links em modo escuro */
+}
+/* toggle */
+.toggle {
+    align-self: center;
+    cursor: pointer;
+    display: inline-block;
+}   
+.toggle-switch {
+    display: inline-block;
+    background: var(--system-color);
+    border-radius: 1rem; /* bordas mais arredondadas */
+    width: 4rem; /* largura reduzida */
+    height: 2rem; /* altura reduzida */
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+.toggle-switch:before {
+    content: "";
+    display: block;
+    background: var(--bg-color);
+    border-radius: 50%;
+    width: 1.6rem; /* largura reduzida do círculo */
+    height: 1.6rem; /* altura reduzida do círculo */
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+    background: var(--bg-color);
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 2.2rem; /* ajustado conforme a nova largura */
+}
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+.back-to {
+    margin-right: 10px;
+}
+
+
+/* ===== Sidebar ===== */
+.sidebar {
+    grid-area: sidebar;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max(3em);
+    height: 100%;
+}
+
+.sidebar a {
+    display: grid;
+    place-items: center; 
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    padding: 10px; 
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+}
+
+.sidebar a:hover {
+    background-color: var(--func-hover);
+}
+
+.sidebar a.active {
+    background-color: var(--func-active);
+}
+
+/* ===== Conteúdo ===== */
+.content {
+    background-color: var(--system-color);
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    padding: 10px;
+    grid-auto-rows: auto;
+}
+
+.content > div {
+    background-color: var(--bg-color);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 10px 0 0;
+}
+
+.content > div span,
+.content > div p {
+    color: black;
+    margin: 5px 0;
+}
+
+.icon {
+    fill: var(--txt-color); /* Aplica a cor inicial */
+    width: 3rem;
+    height: 3rem;
+}
+
+.dark-mode .icon {
+    fill: var(--txt-color); /* Muda a cor no modo escuro */
+}
+
+.back-to-svg {
+    fill: var(--txt-color);
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.dark-mode .back-to-svg {
+    fill: var(--txt-color); /* Muda a cor no modo escuro */
+}
+
+/*cadastro*/
+
+.path-strong {
+    color: var(--path-strong);
+}
+
+.content-container {
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-container-title {
+    color: var(--txt-color);
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+
+.input {
+    background-color: var(--input-color);
+}
+.input.correct {
+    background-color: var(--grey-color);
+}
+.input.error {
+    background-color: var(--input-color);
+}
+
+.select {
+    background-color: var(--input-color);
+}
+
+.select.selected {
+    background-color: var(--grey-color);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center; /* Alinha os campos verticalmente */
+}
+.imagem-container {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; /* Adicionado para posicionar o botão */
+}
+
+.imagem-label {
+    position: absolute; /* Posiciona o botão absolutamente */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro do botão */
+    padding: 8px 16px; /* Espaçamento interno do botão */
+    background-color: #f0f0f0; /* Cor de fundo do botão */
+    border: 1px solid #ccc; /* Borda do botão */
+    border-radius: 5px; /* Bordas arredondadas do botão */
+    cursor: pointer; /* Indica que o elemento é clicável */
+    z-index: 1; /* Garante que o botão esteja acima da imagem */
+}
+
+.imagem-container {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.imagem-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.imagem-label-text {
+    color: var(--txt-color);
+}
+
+.imagem-preview {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imagem-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Ou object-fit: fill; */
+    display: none;
+}
+
+.imagem-label.hidden {
+    display: none;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: start;
+}
+
+.campo label {
+    margin-bottom: 5px;
+}
+
+.campo.sexo {
+    text-align: start;
+    display: flex;
+    flex-direction: column; /* Organiza label e radio buttons verticalmente */
+}
+
+.campo input, .campo select, .campo textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.campo textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 50px;
+}
+
+/* Ajustes específicos */
+
+.sexo label {
+    margin-right: 10px;
+}
+
+.predisposicao, .cuidados {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column; /* Mantém a organização vertical */
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row; /* Organiza os radio buttons horizontalmente */
+}
+
+.radio-group label {
+    margin-right: 10px; /* Espaçamento entre os radio buttons */
+}
+
+
+
+
+
+
+.button-item {
+    padding: 12px 16px;
+    border-radius: 24px;
+    background-color: var(--cor-primaria);
+    color: var(--neutro);
+    font-family: var(--fonte-texto);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    border: none;
+}
+
+

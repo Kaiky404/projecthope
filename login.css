@@ -1,0 +1,200 @@
+:root {
+    /* ===== Cores Imutáveis ===== */
+    --system-color: #00675e;
+    --func-hover: #00675e22;
+    --func-active: #00433f3d;
+
+    /* ===== Cores Light ===== */
+    --input-color: #e7e7e7;
+    --grey-color: #d2d2d2;
+    --bg-color: #F5F5F5;
+    --txt-color: #333333;
+
+    /* ===== Cores Dark ===== */
+    --input-color-dark: #c5c5c5;
+    --grey-color-dark: #c6c6c6;
+    --bg-color-dark: #121212;
+    --txt-color-dark: #E0E0E0;
+
+    /* ===== Tipografia ===== */
+    --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dark-mode {
+    --grey-color: var(--grey-color-dark);
+    --input-color: var(--input-color-dark);
+    --bg-color: var(--bg-color-dark);
+    --txt-color: var(--txt-color-dark);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+/* desktop */
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--system-color);
+    font-family: var(--system-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    fill: var(--txt-color);
+}
+
+.container {
+    display: flex;
+    padding-inline: 4rem;
+}
+
+.container-box {
+    border-radius: 0.25rem;
+    border-width: 1px;
+    background-color: var(--bg-color);
+    padding: 2.5rem;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do container */
+    align-items: center; /* Centraliza o conteúdo verticalmente dentro do container */
+    position: absolute; /* Permite posicionar o container em relação à tela */
+    top: 50%; /* Posiciona o topo do container no centro da tela */
+    left: 50%; /* Posiciona a esquerda do container no centro da tela */
+    transform: translate(-50%, -50%); /* Ajusta o container para centralizar exatamente no centro */
+    width: auto;
+}
+
+.container-box-header {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos com espaço igual entre eles */
+    align-items: center; /* Alinha os elementos verticalmente ao centro */
+    width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
+    padding: 10px; /* Adiciona um pequeno espaçamento interno */
+}
+
+.toggle-div {
+    margin-left: auto;
+}
+
+/* toggle */
+.toggle {
+    align-self: center;
+    cursor: pointer;
+    display: inline-block;
+}   
+
+.toggle-switch {
+    display: inline-block;
+    background: var(--system-color);
+    border-radius: 1rem; /* bordas mais arredondadas */
+    width: 4rem; /* largura reduzida */
+    height: 2rem; /* altura reduzida */
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before {
+    content: "";
+    display: block;
+    background: var(--bg-color);
+    border-radius: 50%;
+    width: 1.6rem; /* largura reduzida do círculo */
+    height: 1.6rem; /* altura reduzida do círculo */
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: var(--bg-color);
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 2.2rem; /* ajustado conforme a nova largura */
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+/* fim - toggle */
+
+.apresentacao {
+    text-align: center;
+}
+.apresentacao-titulo {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: var(--txt-color);
+}
+.apresentacao-strong {
+    color: var(--system-color);
+    font-weight: 600;
+}
+.apresentacao-desc {
+    color: var(--txt-color);
+    margin-bottom: 0.5rem;
+}
+
+.camp-name {
+    font-weight: 700;
+    color: var(--txt-color);
+    margin-bottom: 0.5rem;
+}
+
+.camp {
+    color: var(--txt-color);
+    background-color: var(--grey-color);
+    font-size: 16px;
+    width: 100%;
+    min-width: 30em;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    padding: 0.5rem 0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    padding: 0 10px;
+  }
+
+.camp:hover {
+    border-color: var(--bg-color);
+    box-shadow: 0 0 0 1px var(--bg-color-dark);
+}
+
+.camp:focus {
+    border-color: var(--bg-color-dark);
+    box-shadow: 0 0 0 1px var(--txt-color-dark);
+}
+
+
+.btn-entrar {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-weight: 700;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    transition: transform 0.2s ease-in-out;
+}
+.btn-entrar:hover {
+    background-color: var(--bg-color);
+    transform: scale(1.01);
+}

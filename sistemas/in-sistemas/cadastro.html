@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeVet</title>
+    <link rel="stylesheet" href="/stylesistemas/in-stylesistemas/cadastro.css">
+    <script src="/scriptsistemas/cadastro.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script>
+        // Verifica se o tema salvo no localStorage é "dark"
+        if (localStorage.getItem('theme') === 'dark') {
+            // Adiciona a classe 'dark-mode' no HTML imediatamente
+            document.documentElement.classList.add('dark-mode');
+            // Marca o toggle como ativado (checkbox)
+            window.onload = function() {
+                document.getElementById('alternador').checked = true;
+            };
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            window.onload = function() {
+                document.getElementById('alternador').checked = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h3>Hope<strong>Vet</strong></h3>
+        </div>
+        <div class="funcs">
+            <p>Cadastro</p>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox" id="alternador" />
+                <div class="toggle-switch"></div>
+            </label>
+            <div class="back-to">
+                <a href="/index.html">
+                    <svg viewBox="0 0 511 511" class="back-to-svg" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0465 0H207.308V34.5513H34.5513V475.916H207.308V510.468H15.0465L10.031 508.015C6.35298 506.121 4.34678 504.115 0 495.421V15.0465L2.45203 10.031C4.34678 6.35298 6.35298 4.34678 10.031 2.45203L15.0465 0ZM300.373 0H495.421L500.436 2.56348C504.114 4.45823 506.121 6.35298 510.467 15.158V495.532L508.015 500.548C506.121 504.226 504.114 506.121 495.421 510.579H300.373L295.358 508.015C291.68 506.121 289.674 504.226 285.327 495.532V273.178L154.366 273.067L183.345 302.157L159.382 326.12L88.6073 255.345L159.382 184.571L183.345 208.422L154.366 237.512H285.327V15.158L287.779 10.1425C289.674 6.35298 291.68 4.45823 295.358 2.56348L300.373 0ZM320.993 474.802H474.802V35.6659H320.993V474.802Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a href="/sistemas/visãogeral.html"><p>Visão Geral</p></a>
+            <a href="/sistemas/pacientes.html" class="active"><p>Pacientes</p></a>
+            <a href="/sistemas/agenda.html"><p>Agenda</p></a>
+            <a href="/sistemas/ajustes.html"><p>Ajustes</p></a>
+        </div>
+        <div class="content">
+            <div class="content-container">
+                <form id="meuFormulario">
+                    <h2 class="content-container-title">Dados do Animal</h2>
+                    <div class="row">
+                        <div class="imagem-container">
+                            <div class="imagem-label">
+                                <label for="imagem-input"><p class="imagem-label-text">Selecionar Imagem</p></label>
+                            </div>
+                            <div class="imagem-preview">
+                                <input type="file" id="imagem-input" accept="image/*" style="display: none;">
+                                <img id="imagem-preview-img" src="" alt="Pré-visualização da imagem">
+                            </div>
+                        </div>
+                        <div class="campo paciente">
+                            <label class="label" for="paciente">Paciente</label>
+                            <input class="input" type="text" id="paciente" placeholder="Digite o nome do paciente" required>
+                        </div>
+                        <div class="campo especie">
+                            <label class="label" for="especie">Espécie</label>
+                            <select class="select" id="especie" required>
+                                <option value="padrao">#</option>
+                                <option value="gato">Gato</option>
+                                <option value="cachorro">Cachorro</option>
+                            </select>
+                        </div>
+                        <div class="campo sexo">
+                            <label class="label">Sexo</label>
+                            <div class="radio-group">
+                                <label><input class="input"type="radio" name="sexo" value="macho" required> Macho</label>
+                                <label><input class="input" type="radio" name="sexo" value="femea"> Fêmea</label>
+                            </div>
+                        </div>
+                        <div class="campo raca">
+                            <label class="label" for="raca">Raça</label>
+                            <input class="input" type="text" id="raca" placeholder="Digite a raça do paciente" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="campo idade">
+                            <label class="label" for="idade">Idade</label>
+                            <input class="input" type="number" id="idade" value="0" required>
+                        </div>
+                        <div class="campo microchip">
+                            <label for="microchip">Microchip</label>
+                            <input class="input" type="text" id="microchip" placeholder="ex: 123456789123456">
+                        </div>
+                        <div class="campo porte">
+                            <label class="label" for="porte">Porte</label>
+                            <select class="select" id="porte" required>
+                                <option value="padrao">#</option>
+                                <option value="medio">Médio</option>
+                                <option value="pequeno">Pequeno</option>
+                                <option value="grande">Grande</option>
+                            </select>
+                        </div>
+                        <div class="campo cor">
+                            <label class="label" for="cor">Cor da Pelagem</label>
+                            <input class="input" type="text" id="pelagem" value="Marrom">
+                        </div>
+                        <div class="campo data">
+                            <label class="label" for="data">Data de Nasc</label>
+                            <input class="input" type="date" id="data">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="campo predisposicao">
+                            <label class="label">Predisposição a Doenças</label>
+                            <div class="radio-group">
+                                <label><input type="radio" id="predisposicao-sim" name="predisposicao" value="sim" required> Sim (especificar)</label>
+                                <label><input type="radio" id="predisposicao-nao" name="predisposicao" value="nao"> Não</label>
+                                <label><input type="radio" id="predisposicao-desconhecido" name="predisposicao" value="desconhecido"> Desconhecido</label>
+                            </div>
+                            <textarea id="doenca" class="textarea-condicional" placeholder="Especifique a doença aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                        </div>
+                        <div class="campo cuidados">
+                            <label class="label">Necessidades de Cuidados Especiais</label>
+                            <div class="radio-group">
+                                <label><input type="radio" id="cuidados-sim" name="cuidados" value="sim" required> Sim (especificar)</label>
+                                <label><input type="radio" id="cuidados-nao" name="cuidados" value="nao"> Não</label>
+                                <label><input type="radio" id="cuidados-desconhecido" name="cuidados" value="desconhecido"> Desconhecido</label>
+                            </div>
+                            <textarea id="cuidado" class="textarea-condicional" placeholder="Especifique o cuidado aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                        </div>
+                    </div>
+                    <button class="button-item" id="adicionar-cadastro" type="button">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

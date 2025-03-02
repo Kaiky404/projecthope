@@ -1,0 +1,281 @@
+:root {
+    /* ===== Cores Imutáveis ===== */
+    --system-color: #00675e;
+    --func-hover: #00675e22;
+    --func-active: #00433f3d;
+
+    /* ===== Cores Light ===== */
+    --bg-color: #F5F5F5;
+    --txt-color: #333333;
+
+    /* ===== Cores Dark ===== */
+    --bg-color-dark: #121212;
+    --txt-color-dark: #E0E0E0;
+
+    /* ===== Tipografia ===== */
+    --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --txt-color: var(--txt-color-dark);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "introduction"
+        "funcs"
+        "credits";
+    height: 100vh;
+    grid-template-rows: 50px auto auto auto;
+    background-color: var(--bg-color);
+}
+
+.header, .introduction, .funcs, .credits {
+    font-family: var(--system-font);
+    color: var(--txt-color);
+}
+
+/* ===== Header ===== */
+.header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    font-size: 24px;
+    margin: 10px 0 10px 0;
+}
+
+.header .logo {
+    grid-column: 1;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.header .logo strong {
+    color: var(--system-color);
+}
+
+.header nav {
+    grid-column: 2;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.header nav > a {
+    color: var(--txt-color);
+    margin: 0 10px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.header nav > a:hover {
+    color: var(--system-color);
+    transform: scale(1.01);
+}
+
+.header label {
+    grid-column: 3;
+    text-align: center;
+}
+
+.header .login {
+    color: var(--txt-color);
+    grid-column: 4;
+    text-align: center;
+    margin: 0 10px 0 10px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.header .login:hover {
+    color: var(--system-color);
+    transform: scale(1.01);
+}
+
+
+/* Modo escuro quando o checkbox está marcado */
+.toggle-checkbox:checked ~ #navegationRedirect {
+    background-color: var(--bg-color-dark); /* Cor de fundo em modo escuro */
+    color: var(--bg-color-dark); /* Cor do texto em modo escuro */
+}
+.toggle-checkbox:checked ~ #navegationRedirect .navegation-redirect-link {
+    color: var(--bg-color-dark); /* Cor dos links em modo escuro */
+}
+/* toggle */
+.toggle {
+    align-self: center;
+    cursor: pointer;
+    display: inline-block;
+}   
+.toggle-switch {
+    display: inline-block;
+    background: var(--system-color);
+    border-radius: 1rem; /* bordas mais arredondadas */
+    width: 4rem; /* largura reduzida */
+    height: 2rem; /* altura reduzida */
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+.toggle-switch:before {
+    content: "";
+    display: block;
+    background: var(--bg-color);
+    border-radius: 50%;
+    width: 1.6rem; /* largura reduzida do círculo */
+    height: 1.6rem; /* altura reduzida do círculo */
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+    background: var(--bg-color);
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 2.2rem; /* ajustado conforme a nova largura */
+}
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+/* ===== Introdução ===== */
+.introduction {
+    grid-area: introduction;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 25px;
+}
+
+.introduction div {
+    display: grid;
+    grid-template-rows: auto auto;
+    place-items: center;
+}
+
+.introduction div > h2{
+    font-size: 30px;
+}
+.introduction div > p{
+    font-size: 24px;
+}
+
+.introduction img {
+    margin-top: auto;
+    justify-self: start;
+    max-width: 100%;
+    width: 70%;
+}
+
+/* ===== Funcionalidades ===== */
+.funcs {
+    grid-area: funcs;
+    background-color: var(--system-color);
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 100px;
+    color: white;
+}
+
+.funcs div {
+    display: grid;
+    grid-template-rows: auto auto;
+    place-items: center;
+}
+
+.funcs div > h2{
+    font-size: 30px;
+}
+.funcs div > p{
+    font-size: 24px;
+}
+
+.funcs img {
+    margin-top: auto;
+    justify-self: end;
+    max-width: 100%;
+    width: 70%;
+}
+
+/* ===== Créditos ===== */
+.credits {
+    grid-area: credits;
+    display: grid;
+    background-color: var(--bg-color);
+}
+
+.creditos {
+    display: flex;
+    flex-direction: column;
+    color: var(--txt-color);
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 1rem;
+}
+.creditos-title {
+    margin: 1rem 0rem 0.5rem 0rem;
+    color: var(--txt-color);
+    font-weight: 700;
+    font-size: 30px;
+}
+.creditos-strong {
+    color: var(--system-color);
+}
+
+.creditos-content {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+}
+
+.creditos-content h1 {
+    color: var(--txt-color);
+    text-align: center;
+    margin: 0 10px 0 10px;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.creditos-content h1:hover {
+    transform: scale(1.01);
+}
+
+.creditos-content-merito {
+    color: var(--system-color);
+    display: none;
+    font-weight: 700;
+    font-size: 16px;
+}
+.creditos-content-name {
+    margin: 0.5rem auto 0.5rem auto;
+    font-size: 24px;
+    cursor: pointer;
+}
+.creditos-content-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+}
+.creditos-content-links-link {
+    display: none;
+    cursor: pointer;
+}

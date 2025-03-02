@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login HopeVet</title>
+    <link rel="stylesheet" href="login.css">
+    <script>
+      // Verifica se o tema salvo no localStorage é "dark"
+      if (localStorage.getItem('theme') === 'dark') {
+        // Adiciona a classe 'dark-mode' no HTML imediatamente
+        document.documentElement.classList.add('dark-mode');
+        // Marca o toggle como ativado (checkbox)
+        window.onload = function() {
+          document.getElementById('alternador').checked = true;
+        };
+      } else {
+        document.documentElement.classList.remove('dark-mode');
+        window.onload = function() {
+          document.getElementById('alternador').checked = false;
+        }
+      }
+    </script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <section class="container-box">
+
+            <div class="container-box-header">
+                <div class="back-to">
+                    <a href="index.html">
+                        <svg width="25" height="25" viewBox="0 0 511 511" class="icon" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0465 0H207.308V34.5513H34.5513V475.916H207.308V510.468H15.0465L10.031 508.015C6.35298 506.121 4.34678 504.115 0 495.421V15.0465L2.45203 10.031C4.34678 6.35298 6.35298 4.34678 10.031 2.45203L15.0465 0ZM300.373 0H495.421L500.436 2.56348C504.114 4.45823 506.121 6.35298 510.467 15.158V495.532L508.015 500.548C506.121 504.226 504.114 506.121 495.421 510.579H300.373L295.358 508.015C291.68 506.121 289.674 504.226 285.327 495.532V273.178L154.366 273.067L183.345 302.157L159.382 326.12L88.6073 255.345L159.382 184.571L183.345 208.422L154.366 237.512H285.327V15.158L287.779 10.1425C289.674 6.35298 291.68 4.45823 295.358 2.56348L300.373 0ZM320.993 474.802H474.802V35.6659H320.993V474.802Z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="toggle-div">
+                    <label class="toggle">
+                        <input class="toggle-checkbox" type="checkbox" id="alternador">
+                        <div class="toggle-switch"></div>
+                    </label> 
+                </div>
+            </div>
+            
+            <div class="apresentacao">
+                <h1 class="apresentacao-titulo">
+                    <strong class="apresentacao-strong">Hope</strong>Vet</h1>
+                    <p class="apresentacao-desc">Simplificando a rotina da sua clínica veterinária</p>
+                </div>
+                
+                <form>
+                    <label class="camp-name" for="email">Email</label>
+                    <input class="camp" id="email" type="email" placeholder="Digite seu endereço de email">
+                    
+                    <label class="camp-name" for="senha">Senha</label>
+                    <input class="camp" id="senha" type="password" placeholder="Digite sua senha cadastrada">
+                    
+                    <button onclick="location.href='sistemas/visãogeral.html'" class="btn-entrar"
+                    type="button">Entrar</button>
+                </form>
+            </section>
+        </main>
+    </body>
+    
+    </html>
