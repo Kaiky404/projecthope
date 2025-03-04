@@ -232,17 +232,16 @@ strong {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .modal-content {
     background-color: var(--bg-color);
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     border-radius: 10px;
-    max-width: 600px; /* Limitando o tamanho máximo */
+    max-width: 600px;
     box-sizing: border-box;
 }
 
@@ -293,7 +292,7 @@ h2, p {
 
 /* Modificando a cor do botão de salvar */
 button {
-    background-color: #4CAF50;
+    background-color: #c34e4e;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -302,7 +301,15 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #bd5d5d;
+}
+
+h3.animal-nome {
+    color: var(--txt-color);
+}
+strong.data-cadastro {
+    color: var(--grey-color-dark);
+    
 }
 
 

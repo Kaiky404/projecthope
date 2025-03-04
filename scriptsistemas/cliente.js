@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.innerHTML = `
             <img src="${animal.imagem}" alt="Imagem do animal">
             <h3 class="animal-nome">${animal.paciente}</h3>
-            <p><strong>Data de Cadastro:</strong> ${animal.dataCadastro}</p>
+            <p><strong class="data-cadastro">Data de Cadastro:</strong> ${animal.dataCadastro}</p>
             <button class="remover-animal">Remover</button>
         `;
         listaCliente.appendChild(div);
