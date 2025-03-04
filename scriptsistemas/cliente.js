@@ -42,28 +42,28 @@ function exibirDetalhesAnimal(animal, index) {
     modal.innerHTML = `
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p><strong>Nome:</strong><input type="text" id="modal-name" value="${animal.paciente}" /></p>
-            <p><strong>Espécie:</strong> <input type="text" id="modal-species" value="${animal.especie}" /></p>
-            <p><strong>Sexo:</strong> <input type="text" id="modal-gender" value="${animal.sexo}" /></p>
-            <p><strong>Raça:</strong> <input type="text" id="modal-breed" value="${animal.raca}" /></p>
-            <p><strong>Idade:</strong> <input type="number" id="modal-age" value="${animal.idade}" /></p>
-            <p><strong>Microchip:</strong> <input type="text" id="modal-microchip" value="${animal.microchip}" /></p>
-            <p><strong>Porte:</strong> <input type="text" id="modal-size" value="${animal.porte}" /></p>
-            <p><strong>Pelagem:</strong> <input type="text" id="modal-fur" value="${animal.pelagem}" /></p>
-            <p><strong>Data de Nascimento:</strong> <input type="date" id="modal-birthDate" value="${animal.dataNasc}" /></p>
-            <p><strong>Predisposição a Doenças:</strong> 
+            <p><strong class="label-modal">Nome:</strong><input type="text" id="modal-name" value="${animal.paciente}" /></p>
+            <p><strong class="label-modal">Espécie:</strong> <input type="text" id="modal-species" value="${animal.especie}" /></p>
+            <p><strong class="label-modal">Sexo:</strong> <input type="text" id="modal-gender" value="${animal.sexo}" /></p>
+            <p><strong class="label-modal">Raça:</strong> <input type="text" id="modal-breed" value="${animal.raca}" /></p>
+            <p><strong class="label-modal">Idade:</strong> <input type="number" id="modal-age" value="${animal.idade}" /></p>
+            <p><strong class="label-modal">Microchip:</strong> <input type="text" id="modal-microchip" value="${animal.microchip}" /></p>
+            <p><strong class="label-modal">Porte:</strong> <input type="text" id="modal-size" value="${animal.porte}" /></p>
+            <p><strong class="label-modal">Pelagem:</strong> <input type="text" id="modal-fur" value="${animal.pelagem}" /></p>
+            <p><strong class="label-modal">Data de Nascimento:</strong> <input type="date" id="modal-birthDate" value="${animal.dataNasc}" /></p>
+            <p><strong class="label-modal">Predisposição a Doenças:</strong> 
                 <select id="modal-diseasePredisposition">
                     <option value="sim" ${animal.predisposicao === "sim" ? "selected" : ""}>Sim</option>
                     <option value="não" ${animal.predisposicao === "não" ? "selected" : ""}>Não</option>
                 </select>
-                ${animal.predisposicao === "sim" ? `<p><strong>Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${animal.doenca}</textarea></p>` : ""}
+                ${animal.predisposicao === "sim" ? `<p><strong class="label-modal">Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${animal.doenca}</textarea></p>` : ""}
             </p>
-            <p><strong>Cuidados Especiais:</strong>
+            <p><strong class="label-modal">Cuidados Especiais:</strong>
                 <select id="modal-specialCare">
                     <option value="sim" ${animal.cuidados === "sim" ? "selected" : ""}>Sim</option>
                     <option value="não" ${animal.cuidados === "não" ? "selected" : ""}>Não</option>
                 </select>
-                ${animal.cuidados === "sim" ? `<p><strong>Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${animal.cuidadoDesc}</textarea></p>` : ""}
+                ${animal.cuidados === "sim" ? `<p><strong class="label-modal">Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${animal.cuidadoDesc}</textarea></p>` : ""}
             </p>
             <button id="saveChanges">Salvar Alterações</button>
         </div>
