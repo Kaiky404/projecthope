@@ -55,6 +55,7 @@
                 <form id="meuFormulario">
                     <h2 class="content-container-title">Dados do Animal</h2>
                     <div class="row">
+                        <!-- imagem -->
                         <div class="imagem-container">
                             <div class="imagem-label">
                                 <label for="imagem-input"><p class="imagem-label-text">Selecionar Imagem</p></label>
@@ -64,10 +65,12 @@
                                 <img id="imagem-preview-img" src="" alt="Pré-visualização da imagem">
                             </div>
                         </div>
+                        <!-- nome do animal -->
                         <div class="campo paciente">
                             <label class="label" for="paciente">Paciente</label>
                             <input class="input" type="text" id="paciente" placeholder="Digite o nome do paciente" required>
                         </div>
+                        <!-- espécie -->
                         <div class="campo especie">
                             <label class="label" for="especie">Espécie</label>
                             <select class="select" id="especie" required>
@@ -76,6 +79,26 @@
                                 <option value="cachorro">Cachorro</option>
                             </select>
                         </div>
+                        <!-- microchip -->
+                        <div class="campo microchip">
+                            <label for="microchip">Microchip</label>
+                            <input class="input" type="text" id="microchip" placeholder="ex: 123456789123456">
+                        </div>
+                        
+                        <!-- raça -->
+                        <div class="campo raca">
+                            <label class="label" for="raca">Raça</label>
+                            <input class="input" type="text" id="raca" placeholder="Digite a raça do paciente" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <!-- idade -->
+                        <div class="campo idade">
+                            <label class="label" for="idade">Idade</label>
+                            <input class="input" type="number" id="idade" value="0" required>
+                        </div>
+                        <!-- sexo -->
                         <div class="campo sexo">
                             <label class="label">Sexo</label>
                             <div class="radio-group">
@@ -83,20 +106,7 @@
                                 <label><input class="input" type="radio" name="sexo" value="femea"> Fêmea</label>
                             </div>
                         </div>
-                        <div class="campo raca">
-                            <label class="label" for="raca">Raça</label>
-                            <input class="input" type="text" id="raca" placeholder="Digite a raça do paciente" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="campo idade">
-                            <label class="label" for="idade">Idade</label>
-                            <input class="input" type="number" id="idade" value="0" required>
-                        </div>
-                        <div class="campo microchip">
-                            <label for="microchip">Microchip</label>
-                            <input class="input" type="text" id="microchip" placeholder="ex: 123456789123456">
-                        </div>
+                        <!-- porte -->
                         <div class="campo porte">
                             <label class="label" for="porte">Porte</label>
                             <select class="select" id="porte" required>
@@ -106,35 +116,80 @@
                                 <option value="grande">Grande</option>
                             </select>
                         </div>
+                        <!-- cor da pelagem -->
                         <div class="campo cor">
                             <label class="label" for="cor">Cor da Pelagem</label>
                             <input class="input" type="text" id="pelagem" value="Marrom">
                         </div>
+                        <!-- data de nascimento -->
                         <div class="campo data">
                             <label class="label" for="data">Data de Nasc</label>
                             <input class="input" type="date" id="data">
                         </div>
+                        
+                    </div>
+                    <!-- doenças -->
+                    <div class="campo predisposicao">
+                        <label class="label">Predisposição a Doenças</label>
+                        <div class="radio-group">
+                            <label><input type="radio" id="predisposicao-sim" name="predisposicao" value="sim" required> Sim (especificar)</label>
+                            <label><input type="radio" id="predisposicao-nao" name="predisposicao" value="nao"> Não</label>
+                            <label><input type="radio" id="predisposicao-desconhecido" name="predisposicao" value="desconhecido"> Desconhecido</label>
+                        </div>
+                        <textarea id="doenca" class="textarea-condicional" placeholder="Especifique a doença aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                    </div>
+                    <!-- cuidados especiais -->
+                    <div class="campo cuidados">
+                        <label class="label">Necessidades de Cuidados Especiais</label>
+                        <div class="radio-group">
+                            <label><input type="radio" id="cuidados-sim" name="cuidados" value="sim" required> Sim (especificar)</label>
+                            <label><input type="radio" id="cuidados-nao" name="cuidados" value="nao"> Não</label>
+                            <label><input type="radio" id="cuidados-desconhecido" name="cuidados" value="desconhecido"> Desconhecido</label>
+                        </div>
+                        <textarea id="cuidado" class="textarea-condicional" placeholder="Especifique o cuidado aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="content-container">
+                <form id="meuFormulario2">
+                    <h2 class="content-container-title">Dados do Tutor</h2>
+                    <div class="row">
+                        <!-- tutor -->
+                        <div class="campo tutor">
+                            <label class="label" for="tutor">Tutor</label>
+                            <input class="input" type="text" id="tutor" placeholder="Digite o nome do tutor" required>
+                        </div>
+                        <!-- endereço -->
+                        <div class="campo endereco">
+                            <label class="label" for="endereco">Endereço</label>
+                            <input class="input" type="text" id="endereco" placeholder="Digite o endereço do tutor" required>
+                        </div>
+                        <!-- email -->
+                        <div class="campo email">
+                            <label class="label" for="email">E-mail</label>
+                            <input class="input" type="email" id="email" placeholder="Digite o e-mail do tutor" required>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="campo predisposicao">
-                            <label class="label">Predisposição a Doenças</label>
-                            <div class="radio-group">
-                                <label><input type="radio" id="predisposicao-sim" name="predisposicao" value="sim" required> Sim (especificar)</label>
-                                <label><input type="radio" id="predisposicao-nao" name="predisposicao" value="nao"> Não</label>
-                                <label><input type="radio" id="predisposicao-desconhecido" name="predisposicao" value="desconhecido"> Desconhecido</label>
-                            </div>
-                            <textarea id="doenca" class="textarea-condicional" placeholder="Especifique a doença aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                        <!-- cpf -->
+                        <div class="campo cpf">
+                            <label class="label" for="cpf">CPF</label>
+                            <input class="input" type="number" id="cpf" value="0" required>
                         </div>
-                        <div class="campo cuidados">
-                            <label class="label">Necessidades de Cuidados Especiais</label>
-                            <div class="radio-group">
-                                <label><input type="radio" id="cuidados-sim" name="cuidados" value="sim" required> Sim (especificar)</label>
-                                <label><input type="radio" id="cuidados-nao" name="cuidados" value="nao"> Não</label>
-                                <label><input type="radio" id="cuidados-desconhecido" name="cuidados" value="desconhecido"> Desconhecido</label>
-                            </div>
-                            <textarea id="cuidado" class="textarea-condicional" placeholder="Especifique o cuidado aqui, (essa campo de texto abre se a opção 'sim' for selecionada)"></textarea>
+                        <!-- rg -->
+                        <div class="campo rg">
+                            <label class="label" for="rg">RG</label>
+                            <input class="input" type="number" id="rg" value="0" required>
+                        </div>
+                        <!-- telefone -->
+                        <div class="campo telefone">
+                            <label class="label" for="telefone">Telefone</label>
+                            <input class="input" type="number" id="telefone" value="0" required>
                         </div>
                     </div>
+                    <br><br>
                     <button class="button-item" id="adicionar-cadastro" type="button">Cadastrar</button>
                 </form>
             </div>

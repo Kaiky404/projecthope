@@ -2,46 +2,42 @@ const imagemInput = document.getElementById("imagem-input");
 const imagemPreviewImg = document.getElementById("imagem-preview-img");
 const imagemLabel = document.querySelector(".imagem-label");
 
+// evento dispara quando arquivo é selecionado
 imagemInput.addEventListener("change", function () {
+    // obtém o arquivo selecionado pelo user, o 0(zero) indica a primeira imagem
     const file = this.files[0];
-
+    // verifica se arquivo foi selecionado
     if (file) {
         const reader = new FileReader();
 
+        // função pra aparecer a imagem e sumir o label
         reader.onload = function (e) {
             imagemPreviewImg.src = e.target.result;
             imagemPreviewImg.style.display = "block";
-            imagemLabel.classList.add("hidden"); // Adiciona a classe hidden ao label
+            imagemLabel.classList.add("hidden");
         };
-
         reader.readAsDataURL(file);
+    // some com a imagem e limpa src, remove classe hidden do label
     } else {
         imagemPreviewImg.src = "";
         imagemPreviewImg.style.display = "none";
-        imagemLabel.classList.remove("hidden"); // Remove a classe hidden do label
+        imagemLabel.classList.remove("hidden");
     }
 });
 
 
-
-
-
-
-
-
-
-
-
 const adcionarCadastro = document.getElementById("adicionar-cadastro");
 const meuFormulario = document.getElementById("meuFormulario");
+const meuFormulario2 = document.getElementById("meuFormulario2");
 
 adcionarCadastro.addEventListener("click", function (event) {
-    if (!meuFormulario.checkValidity()) {
+    // checar se o campos dos forms estão validos
+    if (!meuFormulario.checkValidity() || !meuFormulario2.checkValidity()) {
         event.preventDefault();
-        alert("Por favor, preencha todos os campos corretamente.");
+        alert("Por favor, preencha todos os campos corretamente em ambos os formulários.");
         return;
     }
-
+    // campos do formulário do animal
     const paciente = document.getElementById("paciente").value;
     const especie = document.getElementById("especie").value;
     const sexo = document.querySelector('input[name="sexo"]:checked')?.value || "Não informado";
@@ -55,8 +51,16 @@ adcionarCadastro.addEventListener("click", function (event) {
     const doenca = document.getElementById("doenca").value;
     const cuidados = document.querySelector('input[name="cuidados"]:checked')?.value || "Não informado";
     const cuidadoDesc = document.getElementById("cuidado").value;
+    // campos do formulário do tutor
+    const tutor = document.getElementById("tutor").value;
+    const endereco = document.getElementById("endereco").value;
+    const email = document.getElementById("email").value;
+    const cpf = document.getElementById("cpf").value;
+    const rg = document.getElementById("rg").value;
+    const telefone = document.getElementById("telefone").value;
 
-    // Criando um objeto com os dados do formulário
+
+    //objeto com os dados do animal
     const animal = {
         paciente,
         especie,
@@ -74,11 +78,27 @@ adcionarCadastro.addEventListener("click", function (event) {
         imagem: imagemPreviewImg.src,
         dataCadastro: new Date().toLocaleDateString()
     };
+    // objeto com os dados do tutor
+    const guardiao = {
+        tutor,
+        endereco,
+        email,
+        cpf,
+        rg,
+        telefone
+    }
+    // juntando os objetos em um
+    const cadastro = {
+        animal,
+        guardiao
+    }
 
-    // Recupera a lista do localStorage e adiciona o novo animal
-    let listaAnimais = JSON.parse(localStorage.getItem("animais")) || [];
-    listaAnimais.push(animal);
-    localStorage.setItem("animais", JSON.stringify(listaAnimais));
+
+    // Recupera a lista do localStorage e adiciona o novo cadastro
+    let listaCadastros = JSON.parse(localStorage.getItem("cadastros")) || [];
+    listaCadastros.push(cadastro);
+    localStorage.setItem("cadastros", JSON.stringify(listaCadastros));
+
 
     // Redireciona para a página "cliente.html"
     window.location.href = "cliente.html";
@@ -87,22 +107,33 @@ adcionarCadastro.addEventListener("click", function (event) {
     const animalDiv = document.createElement("div");
     animalDiv.classList.add("cliente-card");
     animalDiv.innerHTML = `
-        <h3>${animal.paciente}</h3>
-        <p><strong>Espécie:</strong> ${animal.especie}</p>
-        <p><strong>Sexo:</strong> ${animal.sexo}</p>
-        <p><strong>Raça:</strong> ${animal.raca}</p>
-        <p><strong>Idade:</strong> ${animal.idade} anos</p>
-        <p><strong>Microchip:</strong> ${animal.microchip}</p>
-        <p><strong>Porte:</strong> ${animal.porte}</p>
-        <p><strong>Pelagem:</strong> ${animal.pelagem}</p>
-        <p><strong>Data de Nascimento:</strong> ${animal.dataNasc}</p>
-        <p><strong>Predisposição a Doenças:</strong> ${animal.predisposicao} ${animal.predisposicao === "sim" ? ` - ${animal.doenca}` : ""}</p>
-        <p><strong>Cuidados Especiais:</strong> ${animal.cuidados} ${animal.cuidados === "sim" ? ` - ${animal.cuidadoDesc}` : ""}</p>
+        <!-- animal -->
+        <h3>${cadastro.animal.paciente}</h3>
+        <p><strong>Espécie:</strong> ${cadastro.animal.especie}</p>
+        <p><strong>Sexo:</strong> ${cadastro.animal.sexo}</p>
+        <p><strong>Raça:</strong> ${cadastro.animal.raca}</p>
+        <p><strong>Idade:</strong> ${cadastro.animal.idade} anos</p>
+        <p><strong>Microchip:</strong> ${cadastro.animal.microchip}</p>
+        <p><strong>Porte:</strong> ${cadastro.animal.porte}</p>
+        <p><strong>Pelagem:</strong> ${cadastro.animal.pelagem}</p>
+        <p><strong>Data de Nascimento:</strong> ${cadastro.animal.dataNasc}</p>
+        <p><strong>Predisposição a Doenças:</strong> ${cadastro.animal.predisposicao} ${cadastro.animal.predisposicao === "sim" ? ` - ${cadastro.animal.doenca}` : ""}</p>
+        <p><strong>Cuidados Especiais:</strong> ${cadastro.animal.cuidados} ${cadastro.animal.cuidados === "sim" ? ` - ${cadastro.animal.cuidadoDesc}` : ""}</p>
+        <!-- tutor -->
+        <h3>${cadastro.guardiao.tutor}</h3>
+        <p><strong>Endereço:</strong> ${cadastro.guardiao.endereco}</p>
+        <p><strong>E-mail:</strong> ${cadastro.guardiao.email}</p>
+        <p><strong>CPF:</strong> ${cadastro.guardiao.cpf}</p>
+        <p><strong>RG:</strong> ${cadastro.guardiao.rg}</p>
+        <p><strong>Telefone:</strong> ${cadastro.guardiao.telefone}</p>
     `;
 
     // Adiciona a div do novo animal à lista na página "cliente.html"
     document.getElementById("lista-cliente").appendChild(animalDiv);
 });
+
+
+
 function configurarCampoCondicional(campo) {
     const radioSim = campo.querySelector('[value="sim"]');
     const textarea = campo.querySelector('.textarea-condicional');
@@ -121,6 +152,7 @@ function configurarCampoCondicional(campo) {
 
     atualizarVisibilidadeTextarea(); // Inicializa a visibilidade
 }
+
 
 // Aplica a configuração aos campos
 configurarCampoCondicional(document.querySelector('.campo.predisposicao'));
