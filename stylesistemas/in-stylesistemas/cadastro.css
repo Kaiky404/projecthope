@@ -187,7 +187,8 @@ strong {
 /* ===== Conteúdo ===== */
 .content {
     background-color: var(--system-color);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: auto;
     gap: 10px;
     padding: 10px;
@@ -369,8 +370,12 @@ strong {
 
 .campo.sexo {
     text-align: start;
-    display: flex;
-    flex-direction: column; /* Organiza label e radio buttons verticalmente */
+    display: inline-block;
+}
+
+#sexo {
+    flex: unset;
+    width: auto;
 }
 
 .campo input, .campo select, .campo textarea {
@@ -381,8 +386,10 @@ strong {
 }
 
 .campo textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    min-width: 300px;
+    max-width: 300px;
     min-height: 50px;
+    max-height: 200px;
 }
 
 /* Ajustes específicos */
@@ -394,16 +401,19 @@ strong {
 .predisposicao, .cuidados {
     flex-basis: 100%;
     display: flex;
-    flex-direction: column; /* Mantém a organização vertical */
+    flex-direction: column; 
 }
 
 .radio-group {
     display: flex;
-    flex-direction: row; /* Organiza os radio buttons horizontalmente */
+    flex-direction: row;
 }
 
 .radio-group label {
-    margin-right: 10px; /* Espaçamento entre os radio buttons */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
 }
 
 
@@ -418,7 +428,42 @@ strong {
     border: none;
     border-radius: 10px;
     width: fit-content;
+    height: fit-content;
     justify-self: center;
 }
 
+.separadora {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.separadora-son2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.separadora-son2-extra {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    align-items: center; /* Alinha os campos verticalmente */
+}
+
+.campo.predisposicao {
+    display: flex;
+    align-items: flex-start; /* Alinha os elementos ao topo */
+  }
+  
+  .radio-group {
+    margin-right: 10px; /* Adiciona um espaço entre os radios e o textarea */
+  }
+  
+  .textarea-condicional {
+    flex-grow: 1; /* Permite que o textarea cresça para ocupar o espaço restante */
+    box-sizing: border-box;
+  }
 
