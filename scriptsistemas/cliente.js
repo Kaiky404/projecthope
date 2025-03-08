@@ -50,37 +50,49 @@ function exibirDetalhesAnimal(cadastro, index) {
             <span class="close">&times;</span>
 
             <!-- animal -->
-            <p><strong class="label-modal">Paciente:</strong><input type="text" id="modal-name" value="${cadastro.animal.paciente}" /></p>
-            <p><strong class="label-modal">Espécie:</strong> <input type="text" id="modal-species" value="${cadastro.animal.especie}" /></p>
-            <p><strong class="label-modal">Sexo:</strong> <input type="text" id="modal-gender" value="${cadastro.animal.sexo}" /></p>
-            <p><strong class="label-modal">Raça:</strong> <input type="text" id="modal-breed" value="${cadastro.animal.raca}" /></p>
-            <p><strong class="label-modal">Idade:</strong> <input type="number" id="modal-age" value="${cadastro.animal.idade}" /></p>
-            <p><strong class="label-modal">Microchip:</strong> <input type="text" id="modal-microchip" value="${cadastro.animal.microchip}" /></p>
-            <p><strong class="label-modal">Porte:</strong> <input type="text" id="modal-size" value="${cadastro.animal.porte}" /></p>
-            <p><strong class="label-modal">Pelagem:</strong> <input type="text" id="modal-fur" value="${cadastro.animal.pelagem}" /></p>
-            <p><strong class="label-modal">Data de Nascimento:</strong> <input type="date" id="modal-birthDate" value="${cadastro.animal.dataNasc}" /></p>
-            <p><strong class="label-modal">Predisposição a Doenças:</strong> 
-                <select id="modal-diseasePredisposition">
-                    <option value="sim" ${cadastro.animal.predisposicao === "sim" ? "selected" : ""}>Sim</option>
-                    <option value="não" ${cadastro.animal.predisposicao === "não" ? "selected" : ""}>Não</option>
-                </select>
-                ${cadastro.animal.predisposicao === "sim" ? `<p><strong class="label-modal">Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${cadastro.animal.doenca}</textarea></p>` : ""}
-            </p>
-            <p><strong class="label-modal">Cuidados Especiais:</strong>
-                <select id="modal-specialCare">
-                    <option value="sim" ${cadastro.animal.cuidados === "sim" ? "selected" : ""}>Sim</option>
-                    <option value="não" ${cadastro.animal.cuidados === "não" ? "selected" : ""}>Não</option>
-                </select>
-                ${cadastro.animal.cuidados === "sim" ? `<p><strong class="label-modal">Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${cadastro.animal.cuidadoDesc}</textarea></p>` : ""}
-            </p>
+            <h2 class="title-modal">Animal</h2>
+            <div class="row">
+                <p><strong class="label-modal">Paciente:</strong><input type="text" id="modal-name" value="${cadastro.animal.paciente}" /></p>
+                <p><strong class="label-modal">Espécie:</strong> <input type="text" id="modal-species" value="${cadastro.animal.especie}" /></p>
+                <p><strong class="label-modal">Sexo:</strong> <input type="text" id="modal-gender" value="${cadastro.animal.sexo}" /></p>
+                <p><strong class="label-modal">Raça:</strong> <input type="text" id="modal-breed" value="${cadastro.animal.raca}" /></p>
+            </div>
+            <div class="row">
+                <p><strong class="label-modal">Idade:</strong> <input type="number" id="modal-age" value="${cadastro.animal.idade}" /></p>
+                <p><strong class="label-modal">Microchip:</strong> <input type="text" id="modal-microchip" value="${cadastro.animal.microchip}" /></p>
+                <p><strong class="label-modal">Porte:</strong> <input type="text" id="modal-size" value="${cadastro.animal.porte}" /></p>
+                <p><strong class="label-modal">Pelagem:</strong> <input type="text" id="modal-fur" value="${cadastro.animal.pelagem}" /></p>
+                <p><strong class="label-modal">Data de Nascimento:</strong> <input type="date" id="modal-birthDate" value="${cadastro.animal.dataNasc}" /></p>
+            </div>
+            <div class="row">
+                <p><strong class="label-modal">Predisposição a Doenças:</strong> 
+                    <select id="modal-diseasePredisposition">
+                        <option value="sim" ${cadastro.animal.predisposicao === "sim" ? "selected" : ""}>Sim</option>
+                        <option value="não" ${cadastro.animal.predisposicao === "não" ? "selected" : ""}>Não</option>
+                    </select>
+                    ${cadastro.animal.predisposicao === "sim" ? `<p><strong class="label-modal">Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${cadastro.animal.doenca}</textarea></p>` : ""}
+                </p>
+                <p><strong class="label-modal">Cuidados Especiais:</strong>
+                    <select id="modal-specialCare">
+                        <option value="sim" ${cadastro.animal.cuidados === "sim" ? "selected" : ""}>Sim</option>
+                        <option value="não" ${cadastro.animal.cuidados === "não" ? "selected" : ""}>Não</option>
+                    </select>
+                    ${cadastro.animal.cuidados === "sim" ? `<p><strong class="label-modal">Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${cadastro.animal.cuidadoDesc}</textarea></p>` : ""}
+                </p>
+            </div>
 
+            <h2 class="title-modal">Tutor</h2>
             <!-- tutor -->
-            <p><strong class="label-modal">Nome:</strong><input type="text" id="modal-tutor" value="${cadastro.guardiao.tutor}" /></p>
-            <p><strong class="label-modal">Endereço:</strong><input type="text" id="modal-endereco" value="${cadastro.guardiao.endereco}" /></p>
-            <p><strong class="label-modal">E-mail:</strong><input type="text" id="modal-email" value="${cadastro.guardiao.email}" /></p>
-            <p><strong class="label-modal">CPF:</strong><input type="text" id="modal-cpf" value="${cadastro.guardiao.cpf}" /></p>
-            <p><strong class="label-modal">RG:</strong><input type="text" id="modal-rg" value="${cadastro.guardiao.rg}" /></p>
-            <p><strong class="label-modal">Telefone:</strong><input type="text" id="modal-telefone" value="${cadastro.guardiao.telefone}" /></p>
+            <div class="row">
+                <p><strong class="label-modal">Nome:</strong><input type="text" id="modal-tutor" value="${cadastro.guardiao.tutor}" /></p>
+                <p><strong class="label-modal">Endereço:</strong><input type="text" id="modal-endereco" value="${cadastro.guardiao.endereco}" /></p>
+                <p><strong class="label-modal">E-mail:</strong><input type="text" id="modal-email" value="${cadastro.guardiao.email}" /></p>
+            </div>
+            <div class="row">
+                <p><strong class="label-modal">CPF:</strong><input type="text" id="modal-cpf" value="${cadastro.guardiao.cpf}" /></p>
+                <p><strong class="label-modal">RG:</strong><input type="text" id="modal-rg" value="${cadastro.guardiao.rg}" /></p>
+                <p><strong class="label-modal">Telefone:</strong><input type="text" id="modal-telefone" value="${cadastro.guardiao.telefone}" /></p>
+            </div>
 
             <!-- botão -->
             <button id="saveChanges">Salvar Alterações</button>

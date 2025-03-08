@@ -224,8 +224,10 @@ strong {
     margin: 5px 0;
 }
 
-/* Estilizando o modal */
+/* Modal */
 .modal {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -244,10 +246,27 @@ strong {
     background-color: var(--bg-color);
     margin: 10% auto;
     padding: 20px;
-    width: 80%;
     border-radius: 10px;
-    max-width: 600px;
     box-sizing: border-box;
+}
+
+.title-modal {
+    font-family: var(--system-font);
+    margin-bottom: 20px;
+}
+
+
+.row p {
+    flex-grow: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center; /* Alinha os campos verticalmente */
 }
 
 strong.label-modal {
