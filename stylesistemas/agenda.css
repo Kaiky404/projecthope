@@ -8,11 +8,13 @@
     --bg-color: #F5F5F5;
     --txt-color: #333333;
     --bg-color-events: #65a5a1;
+    --bg-color-events-info: #77bab5;
 
     /* ===== Cores Dark ===== */
     --bg-color-dark: #121212;
     --txt-color-dark: #E0E0E0;
     --bg-color-events-dark: #29403e;
+    --bg-color-events-info-dark: #425c5c;
 
     /* ===== Tipografia ===== */
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,6 +23,7 @@
     --bg-color: var(--bg-color-dark);
     --txt-color: var(--txt-color-dark);
     --bg-color-events: var(--bg-color-events-dark);
+    --bg-color-events-info: var(--bg-color-events-info-dark);
 }
 
 * {
@@ -403,8 +406,6 @@ strong {
 
 
 /* ===== Eventos ===== */
-
-
 .insert {
     position: fixed; /* Fixa o formulário na tela */
     top: 50%;
@@ -443,15 +444,24 @@ strong {
 
 /* Estilização da área que mostra os eventos */
 .events {
-    margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: var(--bg-color-events);
 }
 
 .event-info {
     padding: 8px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--bg-color-events-info);
+    border-bottom: 3px dotted var(--bg-color);
+}
+
+.event-info h3, p {
+    text-align: left;
+    color: var(--txt-color);
+    margin: 5px 0;
+}
+.event-info h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
 }
