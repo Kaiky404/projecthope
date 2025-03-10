@@ -9,7 +9,7 @@ imagemInput.addEventListener("change", function () {
     // verifica se arquivo foi selecionado
     if (file) {
         const reader = new FileReader();
-
+        
         // função pra aparecer a imagem e sumir o label
         reader.onload = function (e) {
             imagemPreviewImg.src = e.target.result;
@@ -17,7 +17,7 @@ imagemInput.addEventListener("change", function () {
             imagemLabel.classList.add("hidden");
         };
         reader.readAsDataURL(file);
-    // some com a imagem e limpa src, remove classe hidden do label
+        // some com a imagem e limpa src, remove classe hidden do label
     } else {
         imagemPreviewImg.src = "";
         imagemPreviewImg.style.display = "none";
@@ -58,8 +58,8 @@ adcionarCadastro.addEventListener("click", function (event) {
     const cpf = document.getElementById("cpf").value;
     const rg = document.getElementById("rg").value;
     const telefone = document.getElementById("telefone").value;
-
-
+    
+    
     //objeto com os dados do animal
     const animal = {
         paciente,
@@ -92,17 +92,17 @@ adcionarCadastro.addEventListener("click", function (event) {
         animal,
         guardiao
     }
-
-
+    
+    
     // Recupera a lista do localStorage e adiciona o novo cadastro
     let listaCadastros = JSON.parse(localStorage.getItem("cadastros")) || [];
     listaCadastros.push(cadastro);
     localStorage.setItem("cadastros", JSON.stringify(listaCadastros));
-
-
+    
+    
     // Redireciona para a página "cliente.html"
     window.location.href = "cliente.html";
-
+    
     // Cria a div do novo animal
     const animalDiv = document.createElement("div");
     animalDiv.classList.add("cliente-card");
@@ -127,17 +127,17 @@ adcionarCadastro.addEventListener("click", function (event) {
         <p><strong>RG:</strong> ${cadastro.guardiao.rg}</p>
         <p><strong>Telefone:</strong> ${cadastro.guardiao.telefone}</p>
     `;
-
+    
     // Adiciona a div do novo animal à lista na página "cliente.html"
     document.getElementById("lista-cliente").appendChild(animalDiv);
 });
 
 
-
+// Comportamento de fazer o textarea aparecer ou desaparecer
 function configurarCampoCondicional(campo) {
     const radioSim = campo.querySelector('[value="sim"]');
     const textarea = campo.querySelector('.textarea-condicional');
-
+    
     function atualizarVisibilidadeTextarea() {
         if (radioSim.checked) {
             textarea.style.display = 'block';
@@ -145,11 +145,11 @@ function configurarCampoCondicional(campo) {
             textarea.style.display = 'none';
         }
     }
-
+    
     radioSim.addEventListener('change', atualizarVisibilidadeTextarea);
     campo.querySelector('[value="nao"]').addEventListener('change', atualizarVisibilidadeTextarea);
     campo.querySelector('[value="desconhecido"]').addEventListener('change', atualizarVisibilidadeTextarea);
-
+    
     atualizarVisibilidadeTextarea(); // Inicializa a visibilidade
 }
 
@@ -162,22 +162,23 @@ configurarCampoCondicional(document.querySelector('.campo.cuidados'));
 document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll(".input");
     const selects = document.querySelectorAll(".select");
-
+    
     inputs.forEach(input => {
         input.addEventListener("change", function () {
             validarInput(input);
         });
     });
-
+    
     selects.forEach(select => {
         select.addEventListener("change", function () {
             validarSelect(select);
         });
     });
-
+    
+    // usando regex na maioria dos campos pra validação, regex que não sei como usar :)
     function validarInput(input) {
         if (input.id === "paciente") {
-            input.value.trim().length > 2 ? input.classList.add("correct") : input.classList.add("error");
+            /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "microchip") {
             /^\d{15}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "data") {
@@ -185,38 +186,36 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (input.id === "idade") {
             validarIdade(input);
         } else if (input.id === "raca") {
-            validarRaca(input);
-        } else if (input.id === "pelagem") { // Adiciona a validação da pelagem
-            validarPelagem(input);
+            /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "pelagem") {
+            /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "tutor") {
+            /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "endereco") {
+            /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s,.-]{5,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "email") {
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "cpf") {
+            validarCpf(input);
+        } else if (input.id === "rg") {
+            /^[0-9.\-]{7,14}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "telefone") {
+            /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         }
     }
-
-    function validarPelagem(input) {
-        const valor = input.value.trim();
-
-        if (valor.length > 2) { // Exemplo: pelagem com mais de 2 caracteres
-            input.classList.add("correct");
-            input.classList.remove("error");
-        } else {
-            input.classList.add("error");
-            input.classList.remove("correct");
-        }
-    }
-
     
-
     function validarData(input) {
         const dataSelecionada = new Date(input.value);
         const dataAtual = new Date();
-
+        
         if (isNaN(dataSelecionada.getTime())) {
             input.classList.add("error");
             input.classList.remove("correct");
             return;
         }
-
+        
         const ano = dataSelecionada.getFullYear();
-
+        
         if (ano < 1900 || ano > dataAtual.getFullYear() || dataSelecionada > dataAtual) {
             input.classList.add("error");
             input.classList.remove("correct");
@@ -225,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
             input.classList.remove("error");
         }
     }
-
+    
     function validarSelect(select) {
         if (select.value) {
             select.classList.add("selected");
@@ -234,11 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function validarIdade(input) {
-        const valor = input.value.trim();
-        const idade = parseInt(valor, 10);
-
-        if (!isNaN(idade) && idade >= 0 && idade <= 100) {
+    function validarCpf(input) {
+        if (input.value.length === 11) {
             input.classList.add("correct");
             input.classList.remove("error");
         } else {
@@ -246,11 +242,12 @@ document.addEventListener("DOMContentLoaded", function () {
             input.classList.remove("correct");
         }
     }
-
-    function validarRaca(input) {
+    
+    function validarIdade(input) {
         const valor = input.value.trim();
-
-        if (valor.length > 2) {
+        const idade = parseInt(valor, 10);
+        
+        if (!isNaN(idade) && idade >= 0 && idade <= 100) {
             input.classList.add("correct");
             input.classList.remove("error");
         } else {

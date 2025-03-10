@@ -261,6 +261,7 @@ strong {
 .input {
     background-color: var(--input-color);
 }
+
 .input.correct {
     background-color: var(--grey-color);
 }
