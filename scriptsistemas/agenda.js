@@ -55,7 +55,7 @@ generateCalendar = (month, year) => {
                     insert.innerHTML = `
                         <span class="close">&times;</span>
                         <input type="text" class="event-name-input" placeholder="Nome do Evento" />
-                        <input type="date" class="event-date-input" value="${date}" />
+                        <input type="date" class="event-date-input" value="${date}" readonly/>
                         <input type="time" class="event-time-input" />
                         <textarea class="event-description-input" placeholder="Descrição do Evento"></textarea>
                         <button class="add-event">Adicionar Evento</button>
