@@ -9,6 +9,7 @@ isLeapYear = (year) => {
 getFebDays = (year) => {
     return isLeapYear(year) ? 29 : 28;
 }
+
 generateCalendar = (month, year) => {
     let calendar_days = calendar.querySelector('.calendar-days');
     let calendar_header_year = calendar.querySelector('#year');
@@ -41,16 +42,20 @@ generateCalendar = (month, year) => {
                 day.classList.add('curr-date');
             }
             
-            // Função para adicionar eventos
-            // Função para adicionar evento
+            const dayNumber = i - first_day.getDay() + 1;
+            const dateString = `${year}-${(month + 1).toString().padStart(2, '0')}-${dayNumber.toString().padStart(2, '0')}`;
+            day.dataset.date = dateString;
+            
             day.addEventListener('click', () => {
-                function expandInsert() {
+                const clickedDate = day.dataset.date;
+                
+                function expandInsert(date) {
                     const insert = document.createElement('div');
                     insert.className = "insert";
                     insert.innerHTML = `
                         <span class="close">&times;</span>
                         <input type="text" class="event-name-input" placeholder="Nome do Evento" />
-                        <input type="date" class="event-date-input" />
+                        <input type="date" class="event-date-input" value="${date}" />
                         <input type="time" class="event-time-input" />
                         <textarea class="event-description-input" placeholder="Descrição do Evento"></textarea>
                         <button class="add-event">Adicionar Evento</button>
@@ -59,7 +64,7 @@ generateCalendar = (month, year) => {
                     const closeButton = insert.querySelector(".close");
                     closeButton.addEventListener("click", () => insert.remove());
                     
-                    document.body.appendChild(insert); // Exibe o formulário na página
+                    document.body.appendChild(insert);
                     
                     const addEventButton = insert.querySelector('.add-event');
                     addEventButton.addEventListener('click', () => {
@@ -68,7 +73,7 @@ generateCalendar = (month, year) => {
                         const event_time = insert.querySelector('.event-time-input').value;
                         const event_description = insert.querySelector('.event-description-input').value;
                         
-                        if (event_name && event_date && event_time && event_description) { // Só adiciona se todos os dados forem preenchidos
+                        if (event_name && event_date && event_time && event_description) {
                             const eventData = {
                                 name: event_name,
                                 date: event_date,
@@ -76,75 +81,23 @@ generateCalendar = (month, year) => {
                                 description: event_description
                             };
                             
-                            // Recupera os eventos do localStorage
                             let events = JSON.parse(localStorage.getItem('events')) || [];
-                            
-                            // Adiciona o novo evento no array de eventos
                             events.push(eventData);
-                            
-                            // Salva o novo array de eventos no localStorage
                             localStorage.setItem('events', JSON.stringify(events));
-                            
-                            // Exibe o evento na tela
                             displayEvents();
-                            
-                            document.body.removeChild(insert); // Remove o formulário após adicionar o evento
+                            document.body.removeChild(insert);
                         } else {
                             alert('Por favor, preencha todos os campos.');
                         }
                     });
                 }
                 
-                expandInsert();
+                expandInsert(clickedDate);
             });
-            
-            // Função para exibir os eventos
-            function displayEvents() {
-                const eventsDiv = document.querySelector('.events');
-                eventsDiv.innerHTML = ''; // Limpa a div antes de exibir os eventos
-                
-                // Recupera os eventos salvos no localStorage
-                const events = JSON.parse(localStorage.getItem('events')) || [];
-                
-                // Exibe cada evento na tela
-                events.forEach((event, index) => {
-                    const eventInfo = document.createElement('div');
-                    eventInfo.className = 'event-info';
-                    eventInfo.innerHTML = `
-                        <span class="close">&times;</span>
-                        <h3 class="event-name">${event.name}</h3>
-                        <p class="event-date">Data: ${event.date}</p>
-                        <p class="event-time">Hora: ${event.time}</p>
-                        <p class="event-description">${event.description}</p>
-                    `;
-                    
-                    const closeButton = eventInfo.querySelector(".close");
-                    closeButton.addEventListener("click", () => {
-                        // Remove o evento do array de eventos
-                        let events = JSON.parse(localStorage.getItem('events')) || [];
-                        events.splice(index, 1); // Remove o evento pelo índice
-                        
-                        // Atualiza o localStorage com o array de eventos atualizado
-                        localStorage.setItem('events', JSON.stringify(events));
-                        
-                        // Atualiza a lista de eventos exibidos
-                        displayEvents();
-                    });
-                    
-                    eventsDiv.appendChild(eventInfo); // Adiciona o evento na div .events
-                });
-            }
-            
-            // Carrega os eventos quando a página é carregada
-            window.addEventListener('load', displayEvents);
-            
-            
-            
         }
         calendar_days.appendChild(day);
     }
 }
-
 
 let month_list = calendar.querySelector('.month-list');
 
@@ -173,11 +126,45 @@ let curr_year = currDate.getFullYear();
 generateCalendar(curr_month, curr_year);
 
 document.querySelector('#prev-year').onclick = () => {
-    --curr_year;
+    curr_month--;
+    if (curr_month < 0) {
+        curr_month = 11;
+        curr_year--;
+    }
     generateCalendar(curr_month, curr_year);
-}
+};
 
 document.querySelector('#next-year').onclick = () => {
-    ++curr_year;
+    curr_month++;
+    if (curr_month > 11) {
+        curr_month = 0;
+        curr_year++;
+    }
     generateCalendar(curr_month, curr_year);
+};
+
+function displayEvents() {
+    const eventsDiv = document.querySelector('.events');
+    eventsDiv.innerHTML = '';
+    const events = JSON.parse(localStorage.getItem('events')) || [];
+    events.forEach((event, index) => {
+        const eventInfo = document.createElement('div');
+        eventInfo.className = 'event-info';
+        eventInfo.innerHTML = `
+            <span class="close">&times;</span>
+            <h3 class="event-name">${event.name}</h3>
+            <p class="event-date">Data: ${event.date}</p>
+            <p class="event-time">Hora: ${event.time}</p>
+            <p class="event-description">${event.description}</p>
+        `;
+        const closeButton = eventInfo.querySelector(".close");
+        closeButton.addEventListener("click", () => {
+            let events = JSON.parse(localStorage.getItem('events')) || [];
+            events.splice(index, 1);
+            localStorage.setItem('events', JSON.stringify(events));
+            displayEvents();
+        });
+        eventsDiv.appendChild(eventInfo);
+    });
 }
+window.addEventListener('load', displayEvents);

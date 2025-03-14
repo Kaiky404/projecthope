@@ -202,7 +202,6 @@ strong {
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    border-radius: 10px;
 }
 
 .content > div span,
@@ -232,15 +231,9 @@ strong {
     fill: var(--txt-color); /* Muda a cor no modo escuro */
 }
 
-
-
-
-
-
 /* ===== Calendário ===== */
 .sub-body {
     display: grid;
-    /*placeitemsCenter faz o calenndar ficar no meio do grid*/
     font-family: var(--txt-color);
 }
 
@@ -254,7 +247,7 @@ strong {
     background-color: var(--bg-color);
     max-width: 600px;
     min-width: auto;
-    max-height: 600px;
+    max-height: 450px;
     min-height: auto;
 }
 
@@ -269,11 +262,11 @@ strong {
     font-size: 25px;
     font-weight: 600;
     color: var(--txt-color);
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 .calendar-body {
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 .calendar-week-day {
@@ -445,7 +438,6 @@ strong {
 /* Estilização da área que mostra os eventos */
 .events {
     padding: 10px;
-    border-radius: 8px;
     background-color: var(--bg-color-events);
 }
 
