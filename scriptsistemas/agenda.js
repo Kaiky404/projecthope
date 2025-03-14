@@ -53,12 +53,14 @@ generateCalendar = (month, year) => {
                     const insert = document.createElement('div');
                     insert.className = "insert";
                     insert.innerHTML = `
-                        <span class="close">&times;</span>
-                        <input type="text" class="event-name-input" placeholder="Nome do Evento" />
-                        <input type="date" class="event-date-input" value="${date}" readonly/>
-                        <input type="time" class="event-time-input" />
-                        <textarea class="event-description-input" placeholder="Descrição do Evento"></textarea>
-                        <button class="add-event">Adicionar Evento</button>
+                        <div class="event-container">
+                            <span class="close">&times;</span>
+                            <input type="text" class="event-name-input" placeholder="Nome do Evento" />
+                            <input type="date" class="event-date-input" value="${date}" readonly/>
+                            <input type="time" class="event-time-input" />
+                            <textarea class="event-description-input" placeholder="Descrição do Evento"></textarea>
+                            <button class="add-event">Adicionar Evento</button>
+                        </div>
                     `;
                     
                     const closeButton = insert.querySelector(".close");
@@ -156,8 +158,10 @@ function displayEvents() {
         const formattedDate = `${day}-${month}-${year}`;
         
         eventInfo.innerHTML = `
-            <span class="close">&times;</span>
-            <h3 class="event-name">${event.name}</h3>
+            <div class="name-and-close">
+                <h3 class="event-name">${event.name}</h3>
+                <span class="close">&times;</span>
+            </div>
             <p class="event-date">Data: ${formattedDate}</p>
             <p class="event-time">Hora: ${event.time}</p>
             <p class="event-description">${event.description}</p>

@@ -8,7 +8,7 @@
     --bg-color: #F5F5F5;
     --txt-color: #333333;
     --bg-color-events: #65a5a1;
-    --bg-color-events-info: #77bab5;
+    --bg-color-events-info: #b2d8d5;
 
     /* ===== Cores Dark ===== */
     --bg-color-dark: #121212;
@@ -207,7 +207,6 @@ strong {
 .content > div span,
 .content > div p {
     color: var(--txt-color);
-    margin: 5px 0;
 }
 
 .icon {
@@ -262,11 +261,6 @@ strong {
     font-size: 25px;
     font-weight: 600;
     color: var(--txt-color);
-    padding: 0px 10px 0px 10px;
-}
-
-.calendar-body {
-    padding: 0px 10px 0px 10px;
 }
 
 .calendar-week-day {
@@ -435,25 +429,47 @@ strong {
     background-color: #45a049;
 }
 
+
+
 /* Estilização da área que mostra os eventos */
 .events {
     padding: 10px;
     background-color: var(--bg-color-events);
 }
 
+.name-and-close {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 0%;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente ao centro */
+}
+
+.event-name {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.event-description, .event-date, .event-time {
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .event-info {
+    text-align: left;
+    border-radius: 5px;
     padding: 8px;
     margin-bottom: 10px;
     background-color: var(--bg-color-events-info);
-    border-bottom: 3px dotted var(--bg-color);
 }
 
-.event-info h3, p {
-    text-align: left;
-    color: var(--txt-color);
-    margin: 5px 0;
-}
-.event-info h3 {
-    font-weight: 600;
-    font-size: 1.2rem;
-}
