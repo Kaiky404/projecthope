@@ -43,8 +43,8 @@ generateCalendar = (month, year) => {
             }
             
             const dayNumber = i - first_day.getDay() + 1;
-            const dateString = `${year}-${(month + 1).toString().padStart(2, '0')}-${dayNumber.toString().padStart(2, '0')}`;
-            day.dataset.date = dateString;
+            const isoDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${dayNumber.toString().padStart(2, '0')}`;
+            day.dataset.date = isoDate;
             
             day.addEventListener('click', () => {
                 const clickedDate = day.dataset.date;
@@ -150,10 +150,15 @@ function displayEvents() {
     events.forEach((event, index) => {
         const eventInfo = document.createElement('div');
         eventInfo.className = 'event-info';
+        
+        // Convertendo a data para DD-MM-YYYY para exibição
+        const [year, month, day] = event.date.split('-');
+        const formattedDate = `${day}-${month}-${year}`;
+        
         eventInfo.innerHTML = `
             <span class="close">&times;</span>
             <h3 class="event-name">${event.name}</h3>
-            <p class="event-date">Data: ${event.date}</p>
+            <p class="event-date">Data: ${formattedDate}</p>
             <p class="event-time">Hora: ${event.time}</p>
             <p class="event-description">${event.description}</p>
         `;
