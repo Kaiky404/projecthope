@@ -40,6 +40,7 @@
         "logo funcs"
         "sidebar content";
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .logo, .funcs, .sidebar, .content {
@@ -191,7 +192,6 @@ strong {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     grid-auto-rows: auto;
-    
 }
 
 .content > div {
@@ -434,9 +434,14 @@ strong {
 
 /* Estilização da área que mostra os eventos */
 .events {
+    margin: 10px;
+    margin-left: auto;
+    border-radius: 10px;
+    border: 3px solid var(--bg-color);
     padding: 10px;
     background-color: var(--bg-color-events);
     max-height: 450px;
+    max-width: 300px;
     overflow-y: auto;
 }
 
@@ -476,3 +481,28 @@ strong {
     background-color: var(--bg-color-events-info);
 }
 
+/* Estilização da barra lateral */
+/* Seleciona a barra de rolagem */
+::-webkit-scrollbar {
+    width: 16px; /* Largura da barra de rolagem */
+  }
+  
+  /* Estiliza a trilha da barra de rolagem */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Cor de fundo da trilha */
+  }
+  
+  /* Estiliza o polegar da barra de rolagem */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Cor do polegar */
+    border-radius: 6px;
+    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-style: solid;
+    border-color: var(--bg-color);
+}
+  
+  /* Estiliza o polegar ao passar o mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2a605c;
+  }
+  

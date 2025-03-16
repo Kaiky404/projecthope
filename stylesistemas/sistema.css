@@ -3,19 +3,19 @@
     --system-color: #00675e;
     --func-hover: #00675e22;
     --func-active: #00433f3d;
-
+    
     /* ===== Cores Light ===== */
     --input-color: #e7e7e7;
     --grey-color: #b2b2b2;
     --bg-color: #F5F5F5;
     --txt-color: #333333;
-
+    
     /* ===== Cores Dark ===== */
     --input-color-dark: #c5c5c5;
     --grey-color-dark: #8a8a8a;
     --bg-color-dark: #121212;
     --txt-color-dark: #E0E0E0;
-
+    
     /* ===== Tipografia ===== */
     --system-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -37,8 +37,8 @@
     grid-template-columns: 200px 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: 
-        "logo funcs"
-        "sidebar content";
+    "logo funcs"
+    "sidebar content";
     min-height: 100vh;
 }
 
@@ -242,7 +242,30 @@ strong {
     fill: var(--txt-color); /* Muda a cor no modo escuro */
 }
 
+/* Estilização da barra lateral */
+/* Seleciona a barra de rolagem */
+::-webkit-scrollbar {
+    width: 16px; /* Largura da barra de rolagem */
+}
 
+/* Estiliza a trilha da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Cor de fundo da trilha */
+}
+
+/* Estiliza o polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Cor do polegar */
+    border-radius: 6px;
+    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-style: solid;
+    border-color: var(--bg-color);
+}
+
+/* Estiliza o polegar ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2a605c;
+}
 
 
 

@@ -367,3 +367,27 @@ img {
     fill: var(--txt-color); /* Muda a cor no modo escuro */
 }
 
+/* Estilização da barra lateral */
+/* Seleciona a barra de rolagem */
+::-webkit-scrollbar {
+    width: 16px; /* Largura da barra de rolagem */
+  }
+  
+  /* Estiliza a trilha da barra de rolagem */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Cor de fundo da trilha */
+  }
+  
+  /* Estiliza o polegar da barra de rolagem */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--system-color); /* Cor do polegar */
+    border-radius: 6px;
+    border-width: 3px 2px 3px 4px; /* Ordem: cima, direita, baixo, esquerda */
+    border-style: solid;
+    border-color: var(--bg-color);
+}
+  
+  /* Estiliza o polegar ao passar o mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2a605c;
+  }
