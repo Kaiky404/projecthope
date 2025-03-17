@@ -217,10 +217,23 @@ strong {
     text-align: center;
     height: auto;
     display: flex;
-    flex-direction: column;
     text-align: left;
     width: fit-content;
     border-radius: 10px;
+}
+
+.all-card {
+    justify-content: flex-start;
+    display: flex;
+    margin-bottom: 20px;
+
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -256,14 +269,26 @@ strong {
     box-sizing: border-box;
 }
 
-.title-modal {
+.title-modal-main {
+    text-align: center;
+    font-size: 24px;
     font-family: var(--system-font);
+    color: var(--txt-color);
+    margin-bottom: 20px;
+}
+
+.title-modal {
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--system-font);
+    color: var(--txt-color);
+    text-align: start;
     margin-bottom: 20px;
 }
 
 
 .row p {
-    flex-grow: 1;
+    text-align: start;
 }
 
 .row {
@@ -277,6 +302,7 @@ strong {
 
 strong.label-modal {
     color: var(--txt-color);
+    margin-right: 5px;
 }
 
 /* Estilizando o botão de fechar */
@@ -341,10 +367,6 @@ button:hover {
 h3.animal-nome {
     color: var(--txt-color);
 }
-strong.data-cadastro {
-    color: var(--grey-color-dark);
-    
-}
 
 
 img {
@@ -372,6 +394,7 @@ img {
 .dark-mode .back-to-svg {
     fill: var(--txt-color); /* Muda a cor no modo escuro */
 }
+
 
 /* Estilização da barra lateral */
 /* Seleciona a barra de rolagem */
