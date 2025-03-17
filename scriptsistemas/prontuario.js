@@ -21,28 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         div.addEventListener("click", function () {
             exibirDetalhesAnimal(cadastro, index);
         });
-
-        // Adiciona o evento de clique para remover o animal
-        div.querySelector(".remover-animal").addEventListener("click", function () {
-            removerAnimal(index);
-        });
     });
 });
-
-function removerAnimal(index) {
-    try {
-        let listaCadastros = JSON.parse(localStorage.getItem("cadastros")) || [];
-        listaCadastros.splice(index, 1);
-        localStorage.setItem("cadastros", JSON.stringify(listaCadastros));
-
-        const animalCard = document.querySelectorAll(".cliente-card")[index];
-        animalCard.parentElement.removeChild(animalCard);
-        // Recarregue a lista de animais aqui para atualizar os índices, se necessário
-    } catch (error) {
-        console.error("Erro ao remover animal:", error);
-        alert("Ocorreu um erro ao remover o animal.");
-    }
-}
 
 function exibirDetalhesAnimal(cadastro, index) {
     const modal = document.createElement("div");
