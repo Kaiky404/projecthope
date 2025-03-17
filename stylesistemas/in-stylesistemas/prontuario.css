@@ -187,7 +187,6 @@ strong {
 /* ===== Conteúdo ===== */
 .content {
     background-color: var(--system-color);
-    display: flex;
 }
 
 .clientes {
@@ -198,6 +197,18 @@ strong {
     flex-direction: row;
     height: fit-content;
 }
+
+.clientes > div {
+    background-color: var(--bg-color);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+} 
 
 .cliente-card {
     background-color: var(--bg-color);
@@ -210,13 +221,8 @@ strong {
     text-align: left;
     width: fit-content;
     border-radius: 10px;
-    margin: 10px auto;
-    transition: transform 0.2s ease-in-out;
 }
 
-.cliente-card:hover {
-    transform: scale(1.01);
-}
 
 .cliente-card span,
 .cliente-card p {
