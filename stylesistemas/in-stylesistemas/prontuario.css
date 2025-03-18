@@ -6,14 +6,18 @@
 
     /* ===== Cores Light ===== */
     --input-color: #e7e7e7;
+    --input-border: #ccc;
     --grey-color: #b2b2b2;
     --bg-color: #F5F5F5;
+    --bg-color-less: #d9d9d94f; 
     --txt-color: #333333;
 
     /* ===== Cores Dark ===== */
     --input-color-dark: #c5c5c5;
+    --input-border-dark: #545454;
     --grey-color-dark: #8a8a8a;
     --bg-color-dark: #121212;
+    --bg-color-less-dark: #22222248;
     --txt-color-dark: #E0E0E0;
 
     /* ===== Tipografia ===== */
@@ -22,7 +26,9 @@
 .dark-mode {
     --grey-color: var(--grey-color-dark);
     --input-color: var(--input-color-dark);
+    --input-border: var(--input-border-dark);
     --bg-color: var(--bg-color-dark);
+    --bg-color-less: var(--bg-color-less-dark);
     --txt-color: var(--txt-color-dark);
 }
 
@@ -200,7 +206,8 @@ strong {
 
 .clientes > div {
     background-color: var(--bg-color);
-    padding: 20px;
+    padding: 40px;
+    margin: 20px 10px;
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -208,19 +215,8 @@ strong {
     justify-content: center;
     width: 100%;
     border-radius: 10px;
-} 
-
-.cliente-card {
-    background-color: var(--bg-color);
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
     height: auto;
-    display: flex;
-    text-align: left;
-    width: fit-content;
-    border-radius: 10px;
-}
+} 
 
 .all-card {
     justify-content: flex-start;
@@ -288,24 +284,51 @@ strong {
     margin-bottom: 20px;
 }
 
+.naoModificavel{
+    background-color: var(--bg-color-less);
+    padding: 2rem 3rem;
+    margin: 0 2rem 3rem 2rem;
+}
+
 
 .row p {
+    border: var(--input-border) solid 1px;
+    padding: 3px 7px;
+    border-radius: 5px;
+    align-items: center;
+    display: inline-flex;
     text-align: start;
+    width: fit-content;
 }
+
+.row p > strong {
+    white-space: nowrap;
+}
+
+.row p > input {
+    font-weight: 300;
+    color: var(--txt-color);
+    font-size: 16px;
+    padding: 0;
+    align-self: center;
+    margin: 0;
+    width: fit-content;
+}
+
 
 .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
     align-items: center; /* Alinha os campos verticalmente */
 }
 
 strong.label-modal {
     color: var(--txt-color);
     margin-right: 5px;
+    font-weight: 500;
 }
 
 /* Estilizando o botão de fechar */
@@ -423,3 +446,63 @@ img {
   ::-webkit-scrollbar-thumb:hover {
     background-color: #2a605c;
   }
+
+  /* RESET DE ESTILOS DOS INPUTS */
+
+  
+  /* Remove estilizações específicas de inputs, selects e buttons */
+  input,
+  select {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Remove estilos de inputs específicos */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"] {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+  
+
+  
+  /* Remove estilos de checkboxes e radios */
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Remove estilos de selects */
+  select {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Remove estilos de textareas */
+  textarea {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    resize: none;
+  }
+  
