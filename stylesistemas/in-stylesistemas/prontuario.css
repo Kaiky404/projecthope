@@ -237,6 +237,8 @@ strong {
 }
 
 
+
+
 .cliente-card span,
 .cliente-card p {
     color: var(--txt-color);
@@ -295,6 +297,7 @@ strong {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 10px;
     margin-bottom: 10px;
     align-items: center; /* Alinha os campos verticalmente */
