@@ -53,11 +53,9 @@ adcionarCadastro.addEventListener("click", function (event) {
     const cuidadoDesc = document.getElementById("cuidado").value;
     // campos do formulário do tutor
     const tutor = document.getElementById("tutor").value;
-    const endereco = document.getElementById("endereco").value;
     const email = document.getElementById("email").value;
-    const cpf = document.getElementById("cpf").value;
-    const rg = document.getElementById("rg").value;
     const telefone = document.getElementById("telefone").value;
+    const endereco = document.getElementById("endereco").value;
     
     
     //objeto com os dados do animal
@@ -81,11 +79,9 @@ adcionarCadastro.addEventListener("click", function (event) {
     // objeto com os dados do tutor
     const guardiao = {
         tutor,
-        endereco,
         email,
-        cpf,
-        rg,
-        telefone
+        telefone,
+        endereco
     }
     // juntando os objetos em um
     const cadastro = {
@@ -121,11 +117,9 @@ adcionarCadastro.addEventListener("click", function (event) {
         <p><strong>Cuidados Especiais:</strong> ${cadastro.animal.cuidados} ${cadastro.animal.cuidados === "sim" ? ` - ${cadastro.animal.cuidadoDesc}` : ""}</p>
         <!-- tutor -->
         <h3>${cadastro.guardiao.tutor}</h3>
-        <p><strong>Endereço:</strong> ${cadastro.guardiao.endereco}</p>
         <p><strong>E-mail:</strong> ${cadastro.guardiao.email}</p>
-        <p><strong>CPF:</strong> ${cadastro.guardiao.cpf}</p>
-        <p><strong>RG:</strong> ${cadastro.guardiao.rg}</p>
         <p><strong>Telefone:</strong> ${cadastro.guardiao.telefone}</p>
+        <p><strong>Endereço:</strong> ${cadastro.guardiao.endereco}</p>
     `;
     
     // Adiciona a div do novo animal à lista na página "cliente.html"
@@ -191,16 +185,12 @@ document.addEventListener("DOMContentLoaded", function () {
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "tutor") {
             /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "endereco") {
-            /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s,.-]{5,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "email") {
             /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
-        } else if (input.id === "cpf") {
-            validarCpf(input);
-        } else if (input.id === "rg") {
-            /^[0-9.\-]{7,14}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         } else if (input.id === "telefone") {
             /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
+        } else if (input.id === "endereco") {
+            /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s,.-]{5,}$/.test(input.value.trim()) ? input.classList.add("correct") : input.classList.add("error");
         }
     }
     
@@ -233,15 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function validarCpf(input) {
-        if (input.value.length === 11) {
-            input.classList.add("correct");
-            input.classList.remove("error");
-        } else {
-            input.classList.add("error");
-            input.classList.remove("correct");
-        }
-    }
     
     function validarIdade(input) {
         const valor = input.value.trim();
