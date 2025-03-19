@@ -200,6 +200,11 @@ strong {
     height: fit-content;
 }
 
+.descDiv {
+    display: flex;
+    flex-direction: column;
+}
+
 .cliente-card {
     background-color: var(--bg-color);
     padding: 20px;

@@ -65,19 +65,20 @@ function exibirDetalhesAnimal(cadastro, index) {
                 <p><strong class="label-modal">Data de Nascimento:</strong> <input type="date" id="modal-birthDate" value="${cadastro.animal.dataNasc}" /></p>
             </div>
             <div class="row">
-                <p><strong class="label-modal">Predisposição a Doenças:</strong> 
+                <p class="descDiv"><strong class="label-modal">Predisposição a Doenças:</strong> 
                     <select id="modal-diseasePredisposition">
                         <option value="sim" ${cadastro.animal.predisposicao === "sim" ? "selected" : ""}>Sim</option>
                         <option value="não" ${cadastro.animal.predisposicao === "não" ? "selected" : ""}>Não</option>
                     </select>
-                    ${cadastro.animal.predisposicao === "sim" ? `<p><strong class="label-modal">Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${cadastro.animal.doenca}</textarea></p>` : ""}
+                    <p><strong class="label-modal">Descrição da Doença:</strong> <textarea id="modal-diseaseDescription">${cadastro.animal.doenca}</textarea></p>
                 </p>
-                <p><strong class="label-modal">Cuidados Especiais:</strong>
+
+                <p class="descDiv"><strong class="label-modal">Cuidados Especiais:</strong> 
                     <select id="modal-specialCare">
                         <option value="sim" ${cadastro.animal.cuidados === "sim" ? "selected" : ""}>Sim</option>
                         <option value="não" ${cadastro.animal.cuidados === "não" ? "selected" : ""}>Não</option>
                     </select>
-                    ${cadastro.animal.cuidados === "sim" ? `<p><strong class="label-modal">Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${cadastro.animal.cuidadoDesc}</textarea></p>` : ""}
+                    <p><strong class="label-modal">Descrição do Cuidado:</strong> <textarea id="modal-careDescription">${cadastro.animal.cuidadoDesc}</textarea></p>
                 </p>
             </div>
 
@@ -85,13 +86,9 @@ function exibirDetalhesAnimal(cadastro, index) {
             <!-- tutor -->
             <div class="row">
                 <p><strong class="label-modal">Nome:</strong><input type="text" id="modal-tutor" value="${cadastro.guardiao.tutor}" /></p>
-                <p><strong class="label-modal">Endereço:</strong><input type="text" id="modal-endereco" value="${cadastro.guardiao.endereco}" /></p>
                 <p><strong class="label-modal">E-mail:</strong><input type="text" id="modal-email" value="${cadastro.guardiao.email}" /></p>
-            </div>
-            <div class="row">
-                <p><strong class="label-modal">CPF:</strong><input type="text" id="modal-cpf" value="${cadastro.guardiao.cpf}" /></p>
-                <p><strong class="label-modal">RG:</strong><input type="text" id="modal-rg" value="${cadastro.guardiao.rg}" /></p>
                 <p><strong class="label-modal">Telefone:</strong><input type="text" id="modal-telefone" value="${cadastro.guardiao.telefone}" /></p>
+                <p><strong class="label-modal">Endereço:</strong><input type="text" id="modal-endereco" value="${cadastro.guardiao.endereco}" /></p>
             </div>
 
             <!-- botão -->
@@ -121,11 +118,9 @@ function exibirDetalhesAnimal(cadastro, index) {
         cadastro.animal.cuidados = document.getElementById("modal-specialCare").value;
         // tutor
         cadastro.guardiao.tutor = document.getElementById("modal-tutor").value;
-        cadastro.guardiao.endereco = document.getElementById("modal-endereco").value;
         cadastro.guardiao.email = document.getElementById("modal-email").value;
-        cadastro.guardiao.cpf = document.getElementById("modal-cpf").value;
-        cadastro.guardiao.rg = document.getElementById("modal-rg").value;
         cadastro.guardiao.telefone = document.getElementById("modal-telefone").value;
+        cadastro.guardiao.endereco = document.getElementById("modal-endereco").value;
 
         // Agora salva as descrições também
         cadastro.animal.doenca = document.getElementById("modal-diseaseDescription") ? document.getElementById("modal-diseaseDescription").value : cadastro.animal.doenca;

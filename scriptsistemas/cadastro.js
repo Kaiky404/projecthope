@@ -82,7 +82,7 @@ adcionarCadastro.addEventListener("click", function (event) {
         email,
         telefone,
         endereco
-    }
+    };
     // juntando os objetos em um
     const cadastro = {
         animal,
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
             select.classList.remove("selected");
         }
     }
-
+    
     
     function validarIdade(input) {
         const valor = input.value.trim();
