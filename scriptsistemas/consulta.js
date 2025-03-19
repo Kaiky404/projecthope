@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.dataset.index = index;
 
         div.innerHTML = `
-            <h3 class="title-modal-main">Histórico Médico de ${cadastro.animal.paciente}</h3>
+            <h3 class="title-modal-main">Consulta de ${cadastro.animal.paciente}</h3>
             <div class="naoModificavel">
                 <h2 class="title-modal">Informações Basicas do Animal</h2>
                 <div class="row">
