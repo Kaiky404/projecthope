@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
-        let y = 20; // Posição vertical inicial
+        let y = 20;
 
         doc.text(`Consulta de ${dadosParaPdf.animal.paciente}`, 20, y);
         y += 10;
