@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p id="modal-species"><strong class="label-modal">Espécie:</strong>${cadastro.animal.especie}</p>
                     <p id="modal-breed"><strong class="label-modal">Raça:</strong>${cadastro.animal.raca}</p>
                     <p id="modal-gender"><strong class="label-modal">Sexo:</strong>${cadastro.animal.sexo}</p>
-                    <p id="modal-size"><strong class="label-modal">Porte:</strong> ${cadastro.animal.porte}</p>
+                    <p id="modal-vac"><strong class="label-modal">Vacina:</strong>${cadastro.animal.vacina}</p>
                 </div>
                 <h2 class="title-modal">Informações Basicas do Tutor</h2>
                 <div class="row">

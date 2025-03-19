@@ -41,6 +41,7 @@ adcionarCadastro.addEventListener("click", function (event) {
     const paciente = document.getElementById("paciente").value;
     const especie = document.getElementById("especie").value;
     const sexo = document.querySelector('input[name="sexo"]:checked')?.value || "Não informado";
+    const vacina = document.querySelector('input[name="vacina"]:checked')?.value || "Não informado";
     const raca = document.getElementById("raca").value;
     const idade = document.getElementById("idade").value;
     const microchip = document.getElementById("microchip").value;
@@ -63,6 +64,7 @@ adcionarCadastro.addEventListener("click", function (event) {
         paciente,
         especie,
         sexo,
+        vacina,
         raca,
         idade,
         microchip,
@@ -107,6 +109,7 @@ adcionarCadastro.addEventListener("click", function (event) {
         <h3>${cadastro.animal.paciente}</h3>
         <p><strong>Espécie:</strong> ${cadastro.animal.especie}</p>
         <p><strong>Sexo:</strong> ${cadastro.animal.sexo}</p>
+        <p><strong>Vacina:</strong> ${cadastro.animal.vacina}</p>
         <p><strong>Raça:</strong> ${cadastro.animal.raca}</p>
         <p><strong>Idade:</strong> ${cadastro.animal.idade} anos</p>
         <p><strong>Microchip:</strong> ${cadastro.animal.microchip}</p>

@@ -55,6 +55,7 @@ function exibirDetalhesAnimal(cadastro, index) {
                 <p><strong class="label-modal">Paciente:</strong><input type="text" id="modal-name" value="${cadastro.animal.paciente}" /></p>
                 <p><strong class="label-modal">Espécie:</strong> <input type="text" id="modal-species" value="${cadastro.animal.especie}" /></p>
                 <p><strong class="label-modal">Sexo:</strong> <input type="text" id="modal-gender" value="${cadastro.animal.sexo}" /></p>
+                <p><strong class="label-modal">vacina:</strong> <input type="text" id="modal-vac" value="${cadastro.animal.vacina}" /></p>
                 <p><strong class="label-modal">Raça:</strong> <input type="text" id="modal-breed" value="${cadastro.animal.raca}" /></p>
             </div>
             <div class="row">
@@ -108,6 +109,7 @@ function exibirDetalhesAnimal(cadastro, index) {
         cadastro.animal.paciente = document.getElementById("modal-name").value;
         cadastro.animal.especie = document.getElementById("modal-species").value;
         cadastro.animal.sexo = document.getElementById("modal-gender").value;
+        cadastro.animal.vacina = document.getElementById("modal-vac").value;
         cadastro.animal.raca = document.getElementById("modal-breed").value;
         cadastro.animal.idade = document.getElementById("modal-age").value;
         cadastro.animal.microchip = document.getElementById("modal-microchip").value;
