@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login HopeVet</title>
+    <title>Cadastro HopeVet</title>
     <link rel="stylesheet" href="login.css">
     <script>
         // Verifica se o tema salvo no localStorage é "dark"
@@ -54,17 +54,26 @@
                 <p class="apresentacao-desc">Simplificando a rotina da sua clínica veterinária</p>
             </div>
 
-            <h4 class="insert-type">Login</h4>
+            <h4 class="insert-type">Cadastrar-se</h4>
             
             <form>
+                <label class="camp-name" for="email">Nome</label>
+                <input class="camp" id="email" type="text" placeholder="Digite o nome da clínica veterinária">
+
                 <label class="camp-name" for="email">Email</label>
-                <input class="camp" id="email" type="email" placeholder="Digite seu endereço de email">
+                <input class="camp" id="email" type="email" placeholder="Digite o endereço de email">
+
+                <label class="camp-name" for="email">Telefone</label>
+                <input class="camp" id="email" type="tel" placeholder="Digite o telefone">
+
+                <label class="camp-name" for="email">endereço</label>
+                <input class="camp" id="email" type="text" placeholder="Digite seu endereço da clínica">
                 
                 <label class="camp-name" for="senha">Senha</label>
-                <input class="camp" id="senha" type="password" placeholder="Digite sua senha cadastrada">
+                <input class="camp" id="senha" type="password" placeholder="Digite uma senha">
                 
                 <button onclick="location.href='sistemas/visãogeral.html'" class="btn-entrar"
-                type="button">Entrar</button>
+                type="button">Cadastrar</button>
             </form>
         </section>
     </main>
