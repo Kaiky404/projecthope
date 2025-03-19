@@ -24,7 +24,7 @@ function applySvgColor(color, mode) {
             path.setAttribute('fill', color);  // Aplica a cor no 'fill' de cada path
         });
     });
-
+    
     // Altera a cor para os SVGs com a classe .back-to-svg
     backs.forEach(back => {
         back.querySelectorAll('path').forEach(path => {
@@ -36,7 +36,7 @@ function applySvgColor(color, mode) {
 // Verifica o estado do tema ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme");
-
+    
     if (savedTheme === "dark") {
         ativarDarkMode();  // Ativa o modo escuro se o tema estiver salvo como 'dark'
         toggleCheckbox.checked = true;  // Marca o checkbox de acordo com o estado salvo
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         desativarDarkMode();  // Desativa o modo escuro caso o tema não seja 'dark'
         toggleCheckbox.checked = false;  // Desmarca o checkbox
     }
-
+    
     // Evento de mudança do checkbox para alternar entre os modos
     toggleCheckbox.addEventListener('change', () => {
         if (toggleCheckbox.checked) {
@@ -65,18 +65,18 @@ applySvgColor(
 function toggleVisibility(element) {
     // Encontra o contêiner pai `creditos-content` do elemento clicado
     const creditosContent = element.closest('.creditos-content');
-
+    
     // Seleciona o `.creditos-content-merito` e todos os `.creditos-content-links-link` dentro do contêiner atual
     const meritElement = creditosContent.querySelector('.creditos-content-merito');
     const linksElements = creditosContent.querySelectorAll('.creditos-content-links-link');
-
+    
     // Verifica se o mérito já está visível para o item atual
     const isVisible = meritElement.style.display === 'block';
-
+    
     // Oculta todos os elementos `.creditos-content-merito` e `.creditos-content-links-link` em todas as seções
     document.querySelectorAll('.creditos-content-merito').forEach(el => el.style.display = 'none');
     document.querySelectorAll('.creditos-content-links-link').forEach(el => el.style.display = 'none');
-
+    
     // Se o elemento clicado já estava visível, não faz nada além de ocultar (alternância no clique)
     if (!isVisible) {
         // Caso contrário, exibe o mérito e links para o item clicado
@@ -84,3 +84,27 @@ function toggleVisibility(element) {
         linksElements.forEach(link => link.style.display = 'inline-block');
     }
 }
+
+// Função para que o redirect da nav seja suave
+
+function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    };
+    
+};
+
+const func = document.querySelector('a[href="#func"]');
+const cred = document.querySelector('a[href="#cred"]');
+
+func.addEventListener('click', (event) => {
+    event.preventDefault();
+    scrollToElement('func');
+});
+
+cred.addEventListener('click', (event) => {
+    event.preventDefault();
+    scrollToElement('cred');
+});

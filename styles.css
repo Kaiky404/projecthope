@@ -89,18 +89,41 @@
     text-align: center;
 }
 
-.header .login {
-    color: var(--txt-color);
+.login {
+    margin: 0 10px;
     grid-column: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login > a {
+    color: var(--txt-color);
     text-align: center;
-    margin: 0 10px 0 10px;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: transform 0.2s ease, color 0.2s ease;
     cursor: pointer;
 }
 
-.header .login:hover {
+.login > a:hover {
     color: var(--system-color);
     transform: scale(1.01);
+
+}
+
+.login > p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.acess-login {
+    font-size: 20px;
+}
+
+.acess-cadastro {
+    font-size: 12px;
+    font-weight: 500;
+    text-wrap: wrap;
 }
 
 
@@ -251,7 +274,7 @@
     color: var(--txt-color);
     text-align: center;
     margin: 0 10px 0 10px;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: transform 0.2s ease, color 0.2s ease;
     cursor: pointer;
 }
 
