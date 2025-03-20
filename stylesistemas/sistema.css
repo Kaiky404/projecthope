@@ -198,17 +198,6 @@ strong {
     color: var(--txt-color);
 }
 
-.card > i {
-    color: var(--txt-color);
-    transition-duration: 0ms;
-    font-size: 3rem;
-}
-
-.card {
-    place-items: center;
-    text-align: center;
-}
-
 /* ===== Conteúdo ===== */
 .content {
     background-color: var(--system-color);
@@ -227,6 +216,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     border-radius: 10px;
     margin: 10px 10px 0 0;
@@ -234,6 +224,15 @@ strong {
 }
 .card:hover {
     transform: scale(1.01);
+}
+.card > i {
+    color: var(--txt-color);
+    transition-duration: 0ms;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.card > p {
+    margin: 0;
 }
 
 .back-to-svg {
