@@ -85,6 +85,19 @@ function toggleVisibility(element) {
     }
 }
 
+
+const gears = document.querySelectorAll('.ri-settings-5-fill');
+
+gears.forEach(gear => {
+    gear.addEventListener('mouseover', () => {
+        // A visibilidade do parágrafo é controlada pelo CSS no hover do elemento pai.
+    });
+    
+    gear.addEventListener('mouseout', () => {
+        // A visibilidade do parágrafo é controlada pelo CSS no hover do elemento pai.
+    });
+});
+
 // Função para que o redirect da nav seja suave
 
 function scrollToElement(elementId) {
@@ -108,3 +121,6 @@ cred.addEventListener('click', (event) => {
     event.preventDefault();
     scrollToElement('cred');
 });
+
+
+

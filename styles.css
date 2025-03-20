@@ -223,7 +223,6 @@
 }
 
 .funcs div {
-    display: grid;
     grid-template-rows: auto auto;
     place-items: center;
 }
@@ -240,6 +239,37 @@
     justify-self: end;
     max-width: 100%;
     width: 70%;
+}
+
+.funcs-list {
+    padding-left: 1rem;
+}
+
+.funcs-list > .gear-item > i {
+    font-size: 3rem;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.funcs-list > .gear-item:hover > i {
+    transform: rotate(45deg);
+}
+
+.funcs-list > .gear-item > p {
+    display: none;
+    font-size: 1rem;
+    margin-left: 10px; /* Adiciona espaço entre o ícone e o texto */
+}
+
+.funcs-list > .gear-item:hover > p {
+    display: block;
+}
+
+.gear-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: 10px; /* Adiciona espaço entre os itens */
 }
 
 /* ===== Créditos ===== */
