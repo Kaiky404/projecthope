@@ -304,11 +304,15 @@ strong {
     margin: 0 2rem 3rem 2rem;
 }
 
+#modal-data, #modal-horario, #modal-tipoConsulta
+, #modal-nomeProfissional, #modal-raProfissional {
+    border: var(--input-border) solid 1px;
+    border-radius: 5px;
+}
+
 
 .row p {
-    border: var(--input-border) solid 1px;
     padding: 3px 7px;
-    border-radius: 5px;
     align-items: center;
     display: inline-flex;
     text-align: start;
