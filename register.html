@@ -53,27 +53,47 @@
 
             <h4 class="insert-type">Cadastrar-se</h4>
             
-            <form>
-                <label class="camp-name" for="email">Nome</label>
-                <input class="camp" id="email" type="text" placeholder="Digite o nome da clínica veterinária">
+            <form id="registerForm">
+                <label class="camp-name" for="nome">Nome</label>
+                <input class="camp" id="nome" type="text" placeholder="Digite o nome da clínica veterinária">
 
                 <label class="camp-name" for="email">Email</label>
-                <input class="camp" id="email" type="email" placeholder="Digite o endereço de email">
+                <input class="camp" id="registerEmail" type="email" placeholder="Digite o endereço de email">
 
-                <label class="camp-name" for="email">Telefone</label>
-                <input class="camp" id="email" type="tel" placeholder="Digite o telefone">
+                <label class="camp-name" for="telefone">Telefone</label>
+                <input class="camp" id="telefone" type="tel" placeholder="Digite o telefone">
 
-                <label class="camp-name" for="email">endereço</label>
-                <input class="camp" id="email" type="text" placeholder="Digite seu endereço da clínica">
+                <label class="camp-name" for="endereco">Endereço</label>
+                <input class="camp" id="endereco" type="text" placeholder="Digite seu endereço da clínica">
                 
-                <label class="camp-name" for="senha">Senha</label>
-                <input class="camp" id="senha" type="password" placeholder="Digite uma senha">
+                <label class="camp-name" for="registerSenha">Senha</label>
+                <input class="camp" id="registerSenha" type="password" placeholder="Digite uma senha">
                 
-                <button onclick="location.href='login.html'" class="btn-entrar"
-                type="button">Cadastrar</button>
+                <button id="registerButton" class="btn-entrar" type="button">Cadastrar</button>
             </form>
         </section>
     </main>
+
+    <script>
+        document.getElementById('registerButton').addEventListener('click', function() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('registerEmail').value;
+            const telefone = document.getElementById('telefone').value;
+            const endereco = document.getElementById('endereco').value;
+            const senha = document.getElementById('registerSenha').value;
+
+            const userData = {
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                endereco: endereco,
+                senha: senha
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 
 </html>

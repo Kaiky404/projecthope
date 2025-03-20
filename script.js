@@ -121,6 +121,3 @@ cred.addEventListener('click', (event) => {
     event.preventDefault();
     scrollToElement('cred');
 });
-
-
-
