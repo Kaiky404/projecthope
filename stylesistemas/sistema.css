@@ -198,6 +198,17 @@ strong {
     color: var(--txt-color);
 }
 
+.card > i {
+    color: var(--txt-color);
+    transition-duration: 0ms;
+    font-size: 3rem;
+}
+
+.card {
+    place-items: center;
+    text-align: center;
+}
+
 /* ===== Conteúdo ===== */
 .content {
     background-color: var(--system-color);
@@ -208,41 +219,21 @@ strong {
     grid-auto-rows: auto;
 }
 
-.content > div {
+.card {
     background-color: var(--bg-color);
     padding: 20px;
     box-sizing: border-box;
-    text-align: center;
-    height: 200px;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 100%;
     border-radius: 10px;
     margin: 10px 10px 0 0;
-}
-
-.content > div span,
-.content > div p {
-    color: black;
-    margin: 5px 0;
-}
-
-.content > div {
     transition: transform 0.2s ease-in-out;
 }
-.content > div:hover {
+.card:hover {
     transform: scale(1.01);
-}
-
-.icon {
-    fill: var(--txt-color); /* Aplica a cor inicial */
-    width: 3rem;
-    height: 3rem;
-}
-
-.dark-mode .icon {
-    fill: var(--txt-color); /* Muda a cor no modo escuro */
 }
 
 .back-to-svg {
