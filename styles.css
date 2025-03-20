@@ -214,7 +214,7 @@
     grid-area: funcs;
     background-color: var(--system-color);
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -245,31 +245,38 @@
     padding-left: 1rem;
 }
 
+.gear-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .funcs-list > .gear-item > i {
     font-size: 3rem;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    animation: blink 1.5s infinite;
 }
 
-.funcs-list > .gear-item:hover > i {
+.funcs-list > .gear-item > i.active {
     transform: rotate(45deg);
+    animation: none;
 }
 
 .funcs-list > .gear-item > p {
     display: none;
     font-size: 1rem;
-    margin-left: 10px; /* Adiciona espaço entre o ícone e o texto */
+    margin-left: 10px;
 }
 
-.funcs-list > .gear-item:hover > p {
+.funcs-list > .gear-item > p.active {
     display: block;
 }
 
-.gear-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Alinha verticalmente os itens */
-    margin-bottom: 10px; /* Adiciona espaço entre os itens */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
 /* ===== Créditos ===== */

@@ -86,15 +86,15 @@ function toggleVisibility(element) {
 }
 
 
-const gears = document.querySelectorAll('.ri-settings-5-fill');
+const gearItems = document.querySelectorAll('.gear-item');
 
-gears.forEach(gear => {
-    gear.addEventListener('mouseover', () => {
-        // A visibilidade do parágrafo é controlada pelo CSS no hover do elemento pai.
-    });
-    
-    gear.addEventListener('mouseout', () => {
-        // A visibilidade do parágrafo é controlada pelo CSS no hover do elemento pai.
+gearItems.forEach(gearItem => {
+    const gear = gearItem.querySelector('i');
+    const text = gearItem.querySelector('p');
+
+    gear.addEventListener('click', () => {
+        gear.classList.toggle('active');
+        text.classList.toggle('active');
     });
 });
 
