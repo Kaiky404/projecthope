@@ -98,32 +98,37 @@
     justify-content: center;
 }
 
-.login > a {
-    color: var(--txt-color);
-    text-align: center;
-    transition: transform 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-}
-
-.login > a:hover {
-    color: var(--system-color);
-    transform: scale(1.01);
-
-}
-
 .login > p {
     font-size: 12px;
     text-align: center;
 }
 
-.acess-login {
+
+.acess-login-btn {
+    display: flex;
     font-size: 20px;
+    color: var(--txt-color);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+}
+.acess-login-btn:hover  {
+    color: var(--system-color);
+    transform: scale(1.01);
 }
 
 .acess-cadastro {
     font-size: 12px;
     font-weight: 500;
     text-wrap: wrap;
+    color: var(--txt-color);
+}
+
+.acess-cadastro:hover {
+    color: var(--system-color);
+    transform: scale(1.01);
 }
 
 
