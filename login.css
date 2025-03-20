@@ -210,3 +210,9 @@ input::placeholder {
     color: var(--txt-color);
     font-size: 20px;
 }
+
+#logout {
+    padding-left: 0.3rem;
+    font-size: 2.3rem;
+    color: var(--txt-color);
+}
