@@ -184,6 +184,16 @@ strong {
     background-color: var(--func-active);
 }
 
+#sidebar-item {
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.dark-mode #sidebar-item > i {
+    color: var(--txt-color);
+}
+
 /* ===== Conteúdo ===== */
 .content {
     background-color: var(--system-color);
