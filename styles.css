@@ -259,7 +259,7 @@
 }
 
 .funcs-list > .gear-item > i.active {
-    transform: rotate(45deg);
+    transform: rotate(360deg);
     animation: none;
 }
 
