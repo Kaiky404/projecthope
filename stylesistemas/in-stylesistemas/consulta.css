@@ -191,12 +191,16 @@ strong {
 }
 
 #sidebar-item {
+    color: var(--txt-color);
+    transition-duration: 0ms;
     display: flex;
     justify-content: center;
     gap: 0.2rem;
 }
 
-.dark-mode #sidebar-item > i {
+#logout {
+    padding-left: 0.3rem;
+    font-size: 2.3rem;
     color: var(--txt-color);
 }
 
